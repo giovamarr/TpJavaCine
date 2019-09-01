@@ -9,6 +9,13 @@ public class conexion {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/cine", "root", "lalo123");
 		System.out.println("conexion exitosa");
+		Statement stmt = conn.createStatement();
+		ResultSet rs= stmt.executeQuery("select * from cine.salas");
+		while(rs.next()) {
+			System.out.println("Numero de Sala");
+			System.out.println(rs.getString("nroSala"));
+			
+		}
 		}
 		
 		catch (SQLException e) {

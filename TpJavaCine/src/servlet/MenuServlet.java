@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class SalaServlet
+ * Servlet implementation class MenuServlet
  */
-@WebServlet("/SalaServlet")
-public class SalaServlet extends HttpServlet {
+@WebServlet("/MenuServlet")
+public class MenuServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SalaServlet() {
+    public MenuServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,20 +30,28 @@ public class SalaServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String opcion = request.getParameter("opcion");
 
-			if (opcion.equals("crear")) {
-		RequestDispatcher requestDispatcher= request.getRequestDispatcher("/views/crearSala.jsp");
-			requestDispatcher.forward(request, response);}
+		String opcion = request.getParameter("opcion");
+		
+//cambiar los if por switch??
+		
+			if (opcion.equals("funcion")) {
+		//RequestDispatcher requestDispatcher= request.getRequestDispatcher("/views/.jsp");
+			//requestDispatcher.forward(request, response);
+				System.out.println("funcion");}
 			
-			else if (opcion.equals("modificar")){
-				RequestDispatcher requestDispatcher= request.getRequestDispatcher("/views/modificarSala.jsp");
+			else if (opcion.equals("sala")){
+				RequestDispatcher requestDispatcher= request.getRequestDispatcher("/views/menuSala.jsp");
 			requestDispatcher.forward(request, response);} 
 			
-				else if (opcion.equals("borrar")) {
-					System.out.println("borrar");}
-			
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+				else if (opcion.equals("pelicula")) {
+					System.out.println("pelicula");}
+				else if (opcion.equals("butaca")) {
+					System.out.println("butaca");
+					
+				}
+		
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**

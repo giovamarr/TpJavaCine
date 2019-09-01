@@ -4,15 +4,15 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Crear Sala</title>
+<title>Modificar Sala</title>
 </head>
 <body>
 
 <form action="SalaServlet" method ="post">
-   <input type="hidden" name="opcion" value="guardar">
-     <h1>Ingrese el numero de la sala que desea crear:</h1>
-       <input type="number" name="nroSala" >
-       <input type="submit" value="Guardar">
+  <input type="hidden" name="opcion" value="modificar">
+     <h1>Ingrese el numero de la sala que desea editar:</h1>
+       <input type="number" name="nroSala">
+       <input type="submit" value="Buscar">
 </form>
 
 </body>
