@@ -11,6 +11,7 @@ public class conexion {
 		System.out.println("conexion exitosa");
 		Statement stmt = conn.createStatement();
 		ResultSet rs= stmt.executeQuery("select * from cine.salas");
+		
 		while(rs.next()) {
 			System.out.println("Numero de Sala");
 			System.out.println(rs.getString("nroSala"));
