@@ -33,8 +33,6 @@ public class MenuServlet extends HttpServlet {
 
 		String opcion = request.getParameter("opcion");
 		
-//cambiar los if por switch??
-		
 			if (opcion.equals("funcion")) {
 		//RequestDispatcher requestDispatcher= request.getRequestDispatcher("/views/.jsp");
 			//requestDispatcher.forward(request, response);

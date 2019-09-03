@@ -1,9 +1,6 @@
-CREATE DATABASE  IF NOT EXISTS `cine` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `cine`;
-
-DROP TABLE IF EXISTS `salas`;
-
+CREATE DATABASE IF NOT EXISTS `cine` /*!40100 DEFAULT CHARACTER SET latin1 */
 CREATE TABLE `salas` (
-  `nroSala` int NOT NULL,
-   PRIMARY KEY (`patente`),
-   ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4;
+  `nroSala` int(11) NOT NULL,
+  PRIMARY KEY (`nroSala`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
