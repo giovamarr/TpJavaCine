@@ -4,18 +4,20 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Iniciar sesion</title>
+<title>Registrarme</title>
 </head>
 <body>
-    <h1>Iniciar sesion</h1>
-    <form action="" method="post"/><br>
+<h1>Formulario de registro</h1>
+ <form action="" method="post"/><br>
     <label>Email</label>
     <input type="text" name="email"/><br><br>
     <label>Password</label>
     <input type="password" name="pass"/><br><br>
-    <input type="submit" value="iniciar sesion"/>
+    <label>Nombre</label>
+    <input type="text" name="nombre"/><br><br>
+    <label>Apellido</label>
+    <input type="text" name="apellido"/><br><br>
+    <input type="submit" value="registrarme"/>
     </form>
-    
-    Registrarse  <a href="views/registro.jsp">click aca</a>
 </body>
 </html>
