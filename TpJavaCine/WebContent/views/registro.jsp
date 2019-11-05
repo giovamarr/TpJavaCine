@@ -17,7 +17,7 @@
     <input type="text" name="nombre"/><br><br>
     <label>Apellido</label>
     <input type="text" name="apellido"/><br><br>
-    <input type="submit" value="registrarme"/>
+    <input type="submit" value="Registrarme"/>
     </form>
 </body>
 </html>

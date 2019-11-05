@@ -8,14 +8,14 @@
 </head>
 <body>
     <h1>Iniciar sesion</h1>
-    <form action="" method="post"/><br>
+    <form action="servlet/InicioSesion" method="post" /><br>
     <label>Email</label>
-    <input type="text" name="email"/><br><br>
+    <input type="text" name="email"required/><br><br>
     <label>Password</label>
-    <input type="password" name="pass"/><br><br>
-    <input type="submit" value="iniciar sesion"/>
+    <input type="password" name="pass"required/><br><br>
+    <input type="submit" value="Iniciar sesion"/>
     </form>
     
-    Registrarse  <a href="views/registro.jsp">click aca</a>
+    Registrarme  <a href="views/registro.jsp">click aca</a>
 </body>
 </html>

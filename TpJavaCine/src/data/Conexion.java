@@ -15,7 +15,7 @@ public class Conexion {
 	private int conectados=0;
 	private Connection conn=null;
 	
-	private Conexion() {
+	public Conexion() {
 		try {
 			Class.forName(driver);
 		} catch (ClassNotFoundException e) {
@@ -52,36 +52,5 @@ public class Conexion {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}
-
+	}	
 }
-	
-	
-	
-	
-	
-	/*public static void main(String[] args) {
-		try {
-			
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/cine", "root", "lalo123");
-		System.out.println("conexion exitosa");
-		Statement stmt = conn.createStatement(); 
-		ResultSet rs= stmt.executeQuery("select * from cine.salas");
-		
-		while(rs.next()) {
-			System.out.println("Nro de Sala");
-			System.out.println(rs.getString("nroSala"));
-			
-		}
-		}
-		
-		catch (SQLException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
-
-}*/
