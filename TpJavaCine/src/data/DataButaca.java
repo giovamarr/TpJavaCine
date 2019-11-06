@@ -14,10 +14,11 @@ public class DataButaca extends Conexion{
 		PreparedStatement pst = null;
 		try {
 			String consulta = "Update butacas set estadoButaca=? where nrobutaca==?";
-			pst =Conexion.getInstancia().getConn().prepareStatement(consulta);
+			pst = getConn().prepareStatement(consulta);
 			/*0-Vacia  1-Ocupada*/
 			pst.setInt(2, nrobut );
 			pst.setInt(1,1);	
+			pst.executeUpdate();
 			
 		}
 		catch (Exception ex){

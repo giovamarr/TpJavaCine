@@ -5,13 +5,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import entities.Butaca;
+import entities.Funcion;
 import entities.Pelicula;
 import entities.Usuario;
 
 public class DataPelicula extends Conexion{
 	
 	
-	public ArrayList<Pelicula> BuscaPeli(){ 
+	public ArrayList<Pelicula> GetAll(){ 
 		
 		ArrayList<Pelicula> peliculas=new ArrayList<Pelicula>();
 		String consulta = "select * from peliculas";		
@@ -57,6 +58,7 @@ public class DataPelicula extends Conexion{
 			pst.setInt(1, peli.getCodPelicula());
 			pst.setString(2, peli.getDescPelicula());
 			pst.setString(3, peli.getNombrePelicula());
+			
 			if(pst.executeUpdate() ==1) {
 				return true;
 			}
@@ -122,7 +124,7 @@ public class DataPelicula extends Conexion{
 			String consulta = "DELETE FROM peliculas where codPelicula==?";
 			pst = getConn().prepareStatement(consulta);
 			pst.setInt(1, peli.getCodPelicula());
-			rs=pst.executeQuery();
+			pst.executeUpdate();
 		
 			
 		}catch(Exception e) {
@@ -152,7 +154,7 @@ public void Update(Pelicula peli) {
 			pst.setString(1,peli.getDescPelicula());
 			pst.setString(2,peli.getNombrePelicula());
 			pst.setInt(3, peli.getCodPelicula());
-			rs=pst.executeQuery();
+			pst.executeUpdate();
 		
 			
 		}catch(Exception e) {
@@ -168,7 +170,7 @@ public void Update(Pelicula peli) {
 				}
 		}
 	}
-	
+
 	
 	
 	
