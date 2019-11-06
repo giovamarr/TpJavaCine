@@ -1,7 +1,7 @@
 package entities;
 public class Butaca {
 private	int nroButaca;
-private	int estadoButaca;
+private	int estadoButaca;/*0-Vacia  1-Ocupada*/
 public int getNroButaca() {
 	return nroButaca;
 }
