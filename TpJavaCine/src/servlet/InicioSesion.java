@@ -43,14 +43,13 @@ public class InicioSesion extends HttpServlet {
 		
 
         String email = request.getParameter("email");
-        String password = request.getParameter("password");
+        String pass = request.getParameter("pass");
         
         UsuarioController usuCon = new UsuarioController();
-        
-        	
-        Usuario usu = usuCon.loginUsuario(email, password);
+       
+        Usuario usu = usuCon.loginUsuario(email, pass);
     	
-    	if(usu.getEmail()!=null)
+    	if(usu.getEmail()!=null) //debe andar mal este get o el login pero llega hasta el servlet y fuera de este if si lo redirecciona
     	{
         
     	sesion.setAttribute("usuarioActual", usu);
@@ -64,8 +63,8 @@ public class InicioSesion extends HttpServlet {
 		 
  		 response.sendRedirect("index.jsp");	
     	 }	
-	}
-
+	
+}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
