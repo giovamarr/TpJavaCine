@@ -6,13 +6,13 @@ import entities.Usuario;
 
 public class UsuarioController {
 
-	public Usuario loginUsuario(String email, String password) 
+	public Usuario loginUsuario(String email, String pass) 
 	{
 		DataUsuario dusu = new DataUsuario();
 		Usuario usu = new Usuario();
         
         
-        if(dusu.validarUsuario(email, password)==true)
+        if(dusu.validarUsuario(email, pass))
         {
         	usu = dusu.getByEmail(email);
    	        	
@@ -33,4 +33,7 @@ public class UsuarioController {
         return usu;
 	}
 
+
 }
+
+

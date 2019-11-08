@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Iniciar sesion</h1>
-    <form action="InicioSesion" method="post" /><br>
+    <form action="InicioSesion" method="post" ><br>
     <label>Email</label>
     <input type="text" name="email"required/><br><br>
     <label>Password</label>

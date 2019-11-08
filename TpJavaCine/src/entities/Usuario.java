@@ -1,23 +1,24 @@
 package entities;
 
 public class Usuario {
-		private String nombreUsuario;
-		private String apellidoUsuario;
+		private String nombre;
+		private String apellido;
 		private String email;
 		private String pass;
 		private String rol;
 		private String estado;
-		public String getNombreUsuario() {
-			return nombreUsuario;
+		
+		public String getNombre() {
+			return nombre;
 		}
-		public void setNombreUsuario(String nombreUsuario) {
-			this.nombreUsuario = nombreUsuario;
+		public void setNombre(String nombre) {
+			this.nombre = nombre;
 		}
-		public String getApellidoUsuario() {
-			return apellidoUsuario;
+		public String getApellido() {
+			return apellido;
 		}
-		public void setApellidoUsuario(String apellidoUsuario) {
-			this.apellidoUsuario = apellidoUsuario;
+		public void setApellido(String apellido) {
+			this.apellido = apellido;
 		}
 		public String getEmail() {
 			return email;

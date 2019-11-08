@@ -48,19 +48,21 @@ public class InicioSesion extends HttpServlet {
         UsuarioController usuCon = new UsuarioController();
        
         Usuario usu = usuCon.loginUsuario(email, pass);
-    	
-    	if(usu.getEmail()!=null) //debe andar mal este get o el login pero llega hasta el servlet y fuera de este if si lo redirecciona
+  
+ 
+    	if(usu.getEmail()!=null) 
     	{
-        
+      
     	sesion.setAttribute("usuarioActual", usu);
     	
-    	response.sendRedirect("index.jsp");	
+    	response.sendRedirect("views/registro.jsp");	
         	
 		}
     	 else 
     	 { 
+    	
  		 request.getSession().setAttribute("errorLogin", "Usuario y/o contraseña incorrecta");	
-		 
+ 		
  		 response.sendRedirect("index.jsp");	
     	 }	
 	
