@@ -1,5 +1,5 @@
 package data;
-import entities.Sala;
+//import entities.Sala;
 public class DataSala extends Conexion{
 
 }

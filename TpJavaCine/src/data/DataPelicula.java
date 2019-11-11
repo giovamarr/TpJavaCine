@@ -4,10 +4,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import entities.Butaca;
-import entities.Funcion;
+//import entities.Butaca;
+//import entities.Funcion;
 import entities.Pelicula;
-import entities.Usuario;
+//import entities.Usuario;
 
 public class DataPelicula extends Conexion{
 	

@@ -116,7 +116,7 @@ public void Update(Reserva res) {
 			String consulta = "Update funcion set fechaCompra=?,horaCompra=? where idReserva==?";
 
 			pst =Conexion.getInstancia().getConn().prepareStatement(consulta);	
-			pst.setDate(1, res.getFechaCompra());
+			//pst.setDate(1, res.getFechaCompra());
 			pst.setInt(2,res.getHoraCompra());
 			pst.setInt(3, res.getIdReserva());	
 
@@ -144,7 +144,7 @@ public void Insert(Reserva res) {
 	try {
 		String consulta = "insert into funcion (fechaCompra, horaCommpra)values (?,?)";
 		pst = getConn().prepareStatement(consulta);	
-		pst.setDate(1, res.getFechaCompra());
+		//pst.setDate(1, res.getFechaCompra());
 		pst.setInt(2,res.getHoraCompra());	
 		pst.executeUpdate();
 		
