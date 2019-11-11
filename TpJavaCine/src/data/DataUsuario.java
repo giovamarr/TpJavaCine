@@ -6,15 +6,15 @@ import java.sql.*;
 public class DataUsuario {
 	
 
-	public boolean registrarUsuario(String email, String apellidoUsuario, String nombreUsuario, String pass) {
+	public boolean registrarUsuario(String email, String apellido, String nombre, String pass) {
 	
 		PreparedStatement pst = null;
 		try {
-			String consulta = "insert into usuarios (email, apellidoUsuario, nombreUsuario, pass)values (?,?,?,?)";
+			String consulta = "insert into usuarios (email, apellido, nombre, pass)values (?,?,?,?)";
 			pst =Conexion.getInstancia().getConn().prepareStatement(consulta);
 			pst.setString(1, email);
-			pst.setString(2, apellidoUsuario);
-			pst.setString(3, nombreUsuario);
+			pst.setString(2, apellido);
+			pst.setString(3, nombre);
 			pst.setString(4, pass);
 			if(pst.executeUpdate() ==1) {
 				return true;
@@ -68,7 +68,7 @@ public class DataUsuario {
 		PreparedStatement pst=null;
 		ResultSet rs=null;
 		try {
-			String consulta = "select email,nombre,apellido,rol,pass from usuarios where email=?";
+			String consulta = "select email,nombre,apellido,pass from usuarios where email=?";
 			pst = Conexion.getInstancia().getConn().prepareStatement(consulta);
 			pst.setString(1, email);
 			rs=pst.executeQuery();	
@@ -79,7 +79,6 @@ public class DataUsuario {
 				usuario.setEmail(rs.getString("email"));
 				usuario.setNombre(rs.getString("nombre"));
 				usuario.setApellido(rs.getString("apellido"));
-				usuario.setRol(rs.getString("rol"));
 				usuario.setPass(rs.getString("pass"));
 				
 				
