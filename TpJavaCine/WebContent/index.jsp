@@ -13,7 +13,7 @@
     <input type="text" name="email"required/><br><br>
     <label>Password</label>
     <input type="password" name="pass"required/><br><br>
-    <input type="submit" value="Iniciar sesion"/>
+    <input type="submit" value="Iniciar sesion" />
     </form>
     
     Registrarme  <a href="views/registro.jsp">click aca</a>

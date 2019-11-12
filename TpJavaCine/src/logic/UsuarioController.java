@@ -10,8 +10,8 @@ public class UsuarioController {
 	{
 		DataUsuario dusu = new DataUsuario();
 		Usuario usu = new Usuario();
-        
-        
+        usu=null;
+        	
         if(dusu.validarUsuario(email, pass))
         {
         	usu = dusu.getByEmail(email);
@@ -22,6 +22,7 @@ public class UsuarioController {
         return usu;
 
 	}
+	
 	
 	public Usuario getByEmail(String email) 
 	{

@@ -6,6 +6,7 @@ public class Conexion {
 	private static Conexion instancia;
 	
 	
+
 	public String driver="com.mysql.jdbc.Driver";
 	private String host="localhost";
 	private String port="3306";
@@ -28,7 +29,9 @@ public class Conexion {
 			instancia = new Conexion();
 		}
 		return instancia;
+		
 	}
+
 	
 	public Connection getConn() {
 		try {
