@@ -9,15 +9,16 @@ import entities.Butaca;
 public class DataButaca extends Conexion{
 	
 	
-	public void RegistraOcupado(int nrobut) {
+	public void RegistraOcupado(int nrobut, int sala) {
 		
 		PreparedStatement pst = null;
 		try {
-			String consulta = "Update butacas set estadoButaca=? where nrobutaca==?";
+			String consulta = "Update butacas set estadoButaca=? where nrobutaca==?  and id_sala=?";
 			pst = getConn().prepareStatement(consulta);
 			/*0-Vacia  1-Ocupada*/
 			pst.setInt(2, nrobut );
 			pst.setInt(1,1);	
+			pst.setInt(3,sala);	
 			pst.executeUpdate();
 			
 		}
@@ -53,6 +54,7 @@ public class DataButaca extends Conexion{
 					Butaca a = new Butaca();
 					a.setEstadoButaca(rs.getInt("estadobutaca"));
 					a.setNroButaca(rs.getInt("nrobutaca"));
+					a.setId_sala(rs.getInt("id_sala"));
 					butacas.add(a);
 										
 				}								

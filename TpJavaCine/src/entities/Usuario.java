@@ -7,7 +7,10 @@ public class Usuario {
 		private String pass;
 		private String rol;
 		private String estado;
-		
+		private int idUsuario;
+
+		private int id_cliente;
+			
 		public String getNombre() {
 			return nombre;
 		}
@@ -43,5 +46,17 @@ public class Usuario {
 		}
 		public void setEstado(String estado) {
 			this.estado = estado;
+		}
+		public int getIdUsuario() {
+			return idUsuario;
+		}
+		public void setIdUsuario(int idUsuario) {
+			this.idUsuario = idUsuario;
+		}
+		public int getId_cliente() {
+			return id_cliente;
+		}
+		public void setId_cliente(int id_cliente) {
+			this.id_cliente = id_cliente;
 		}
 }

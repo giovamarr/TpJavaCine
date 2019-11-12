@@ -11,16 +11,21 @@ import entities.Usuario;
 public class DataUsuario {
 	private static String driver="com.mysql.jdbc.Driver";
 
-	public boolean registrarUsuario(String email, String apellido, String nombre, String pass) {
+	public boolean registrarUsuario(String email, String apellido, String nombre, String pass,int idcli,String estad,String rol) {
 	
 		PreparedStatement pst = null;
 		try {
-			String consulta = "insert into usuarios (emailUsuario, apellidoUsuario, nombreUsuario, passUsuario)values (?,?,?,?)";
+			String consulta = "insert into usuarios (emailUsuario, apellidoUsuario, nombreUsuario, passUsuario,id_cliente,estado,rol)values (?,?,?,?,?,?,?)";
 			pst =Conexion.getInstancia().getConn().prepareStatement(consulta);
 			pst.setString(1, email);
 			pst.setString(2, apellido);
 			pst.setString(3, nombre);
 			pst.setString(4, pass);
+			pst.setInt(5, idcli);
+			pst.setString(6, estad);
+			pst.setString(7, rol);
+			
+			
 			if(pst.executeUpdate() ==1) {
 				return true;
 			}
@@ -82,7 +87,7 @@ public class DataUsuario {
 		PreparedStatement pst=null;
 		ResultSet rs=null;
 		try {
-			String consulta = "select emailUsuario,nombreUsuario,apellidoUsuario,passUsuario from usuarios where emailUsuario=?";
+			String consulta = "select * from usuarios where emailUsuario=?";
 			pst = Conexion.getInstancia().getConn().prepareStatement(consulta);
 			pst.setString(1, email);
 			rs=pst.executeQuery();	
@@ -90,10 +95,14 @@ public class DataUsuario {
 			if(rs!=null && rs.next()) 
 		{
 				usuario = new Usuario();	
+				usuario.setIdUsuario(rs.getInt("idUsuario"));
 				usuario.setEmail(rs.getString("emailUsuario"));
 				usuario.setNombre(rs.getString("nombreUsuario"));
 				usuario.setApellido(rs.getString("apellidoUsuario"));
 				usuario.setPass(rs.getString("passUsuario"));
+				usuario.setId_cliente(rs.getInt("id_cliente"));
+				usuario.setEstado(rs.getString("estado"));
+				usuario.setRol(rs.getString("rol"));
 				
 				
 		}else {	System.out.println("no existe usuario");	}

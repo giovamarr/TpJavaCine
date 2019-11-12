@@ -18,9 +18,10 @@ public class DataTarjeta extends Conexion{
 			rs=pst.executeQuery();	
 			if(rs.next()) 
 		{
+				tarj.setIdTarjeta(rs.getInt("idTarjeta"));
 				tarj.setEmpresa(rs.getString("empresa"));
 				tarj.setFechaVto(rs.getDate("fechaVto"));
-				tarj.setIdTarjeta(rs.getInt("idTarjeta"));
+				tarj.setId_cliente(rs.getInt("id_cliente"));
 		}
 			
 		} catch (SQLException e) {

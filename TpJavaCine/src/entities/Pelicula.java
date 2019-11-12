@@ -5,8 +5,6 @@ public class Pelicula {
    private String nombrePelicula;
    private String descPelicula;
 
-
-
 public int getCodPelicula() {
 	return codPelicula;
 }

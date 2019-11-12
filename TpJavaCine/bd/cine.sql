@@ -1,0 +1,1 @@
+select emailUsuario,nombreUsuario,apellidoUsuario,passUsuario from usuarios where emailUsuario=aasalasid_codPeliculadiaFuncionhoraFuncionusuarios

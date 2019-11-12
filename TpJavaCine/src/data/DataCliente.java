@@ -11,7 +11,7 @@ public class DataCliente extends Conexion{
 public ArrayList<Cliente> GetAll(){ 
 		
 		ArrayList<Cliente> clientes=new ArrayList<Cliente>();
-		String consulta = "select * from Clientes";		
+		String consulta = "select * from clientes";		
 		PreparedStatement pst=null;
 		ResultSet rs=null;
 		try {
@@ -21,10 +21,8 @@ public ArrayList<Cliente> GetAll(){
 			while(rs.next()) 
 		{			
 				Cliente clien = new Cliente();
-				clien.setApellido(rs.getString("apellido"));
-				clien.setDni(rs.getInt("dni"));
-				clien.setIdCliente(rs.getInt("idCLiente"));
-				clien.setNombre(rs.getString("nombre"));
+				clien.setDni(rs.getString("dni"));
+				clien.setNroCliente(rs.getInt("idCliente"));
 				clien.setTelefono(rs.getString("telefono"));
 				clientes.add(clien);
 										
@@ -48,7 +46,7 @@ public ArrayList<Cliente> GetAll(){
 	
 	public Cliente GetOne(int id) {
 		Cliente clien = new Cliente();
-		String consulta = "select * from cliente where idCliente=?";		
+		String consulta = "select * from clientes where nroCliente=?";		
 		PreparedStatement pst=null;
 		ResultSet rs=null;
 		try {
@@ -57,10 +55,8 @@ public ArrayList<Cliente> GetAll(){
 			rs=pst.executeQuery();	
 			if(rs.next()) 
 		{
-				clien.setApellido(rs.getString("apellido"));
-				clien.setDni(rs.getInt("dni"));
-				clien.setIdCliente(rs.getInt("idCLiente"));
-				clien.setNombre(rs.getString("nombre"));
+				clien.setDni(rs.getString("dni"));
+				clien.setNroCliente(rs.getInt("idCliente"));
 				clien.setTelefono(rs.getString("telefono"));
 		}
 			
@@ -88,9 +84,9 @@ public ArrayList<Cliente> GetAll(){
 		PreparedStatement pst=null;
 		ResultSet rs=null;
 		try {
-			String consulta = "DELETE FROM clientes where idCliente==?";
+			String consulta = "DELETE FROM clientes where nroCliente==?";
 			pst = getConn().prepareStatement(consulta);
-			pst.setInt(1, cli.getIdCliente());
+			pst.setInt(1, cli.getNroCliente());
 			pst.executeUpdate();
 		
 			
@@ -116,13 +112,11 @@ public void Update(Cliente cli) {
 		PreparedStatement pst=null;
 		ResultSet rs=null;
 		try {
-			String consulta = "Update clientes set Apellido=?,dni=?,nombre=?,telefono=? where idCliente==?";
+			String consulta = "Update clientes set dni=?,telefono=? where nroCliente==?";
 			pst = getConn().prepareStatement(consulta);
-			pst.setString(1,cli.getApellido());
-			pst.setInt(2,cli.getDni());
-			pst.setString(3, cli.getNombre());
-			pst.setString(3, cli.getTelefono());
-			pst.setInt(2,cli.getIdCliente());		
+		
+			pst.setString(1,cli.getDni());
+			pst.setString(2, cli.getTelefono());
 
 			pst.executeUpdate();
 		
@@ -146,12 +140,11 @@ public void Insert(Cliente cli) {
 
 	PreparedStatement pst = null;
 	try {
-		String consulta = "insert into cliente (apellido, dni, nombre,telefono)values (?,?,?,?)";
+		String consulta = "insert into cliente (dni, telefono)values (?,?)";
 		pst =Conexion.getInstancia().getConn().prepareStatement(consulta);
-		pst.setString(1,cli.getApellido());
-		pst.setInt(2,cli.getDni());
-		pst.setString(3, cli.getNombre());
-		pst.setString(3, cli.getTelefono());
+	
+		pst.setString(1,cli.getDni());
+		pst.setString(2, cli.getTelefono());
 		pst.executeUpdate();
 		
 	}

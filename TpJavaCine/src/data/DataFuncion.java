@@ -22,7 +22,9 @@ public ArrayList<Funcion> GetAll(){
 		{			
 				Funcion funcion = new Funcion();
 				funcion.setIdFuncion(rs.getInt("idFuncion"));
-				funcion.setDiaFuncion(rs.getDate("diafuncion"));
+				funcion.setId_nrosala(rs.getInt("id_nrosala"));
+				funcion.setId_codPelicula(rs.getInt("id_codPelicula"));
+				funcion.setDiaFuncion(rs.getDate("diaFuncion"));
 				funcion.setHoraFuncion(rs.getInt("horaFuncion"));
 				funciones.add(funcion);
 										
@@ -55,8 +57,11 @@ public ArrayList<Funcion> GetAll(){
 			rs=pst.executeQuery();	
 			if(rs.next()) 
 		{
+
 				funcion.setIdFuncion(rs.getInt("idFuncion"));
-				funcion.setDiaFuncion(rs.getDate("diafuncion"));
+				funcion.setId_nrosala(rs.getInt("id_nrosala"));
+				funcion.setId_codPelicula(rs.getInt("id_codPelicula"));
+				funcion.setDiaFuncion(rs.getDate("diaFuncion"));
 				funcion.setHoraFuncion(rs.getInt("horaFuncion"));
 		}
 			
@@ -107,20 +112,20 @@ public ArrayList<Funcion> GetAll(){
 	
 
 public void Update(Funcion func) {
-		/*
-				funcion.setIdFuncion(rs.getInt("idFuncion"));
-				funcion.setDiaFuncion(rs.getDate("diafuncion"));
-				funcion.setHoraFuncion(rs.getInt("horaFuncion"));*/
+	
 		
 		PreparedStatement pst=null;
 		ResultSet rs=null;
 		try {
-			String consulta = "Update funcion set diaFuncion=?,horaFuncion=? where idFuncion==?";
+			String consulta = "Update funcion set diaFuncion=?,horaFuncion=?,id_nrosala=?,id_codPelicula=? where idFuncion==?";
 
 			pst =Conexion.getInstancia().getConn().prepareStatement(consulta);	
 			pst.setDate(1, func.getDiaFuncion());
-			pst.setInt(2,func.getHoraFuncion());
-			pst.setInt(3, func.getIdFuncion());	
+			pst.setInt(2,func.getHoraFuncion());			
+			pst.setInt(3,func.getId_nrosala());
+			pst.setInt(4,func.getId_codPelicula());
+			pst.setInt(5, func.getIdFuncion());	
+			
 
 			pst.executeUpdate();
 		
@@ -144,10 +149,12 @@ public void Insert(Funcion func) {
 
 	PreparedStatement pst = null;
 	try {
-		String consulta = "insert into funcion (diaFuncion, horaFuncion)values (?,?)";
+		String consulta = "insert into funcion (diaFuncion, horaFuncion,id_nrosala,id_codPelicula)values (?,?,?,?)";
 		pst = getConn().prepareStatement(consulta);
 		pst.setDate(1, func.getDiaFuncion());
-		pst.setInt(2,func.getHoraFuncion());
+		pst.setInt(2,func.getHoraFuncion());			
+		pst.setInt(3,func.getId_nrosala());
+		pst.setInt(4,func.getId_codPelicula());
 		pst.executeUpdate();
 		
 	}

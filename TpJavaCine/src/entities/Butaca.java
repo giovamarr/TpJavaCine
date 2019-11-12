@@ -2,6 +2,8 @@ package entities;
 public class Butaca {
 private	int nroButaca;
 private	int estadoButaca;/*0-Vacia  1-Ocupada*/
+private	int id_sala;
+
 public int getNroButaca() {
 	return nroButaca;
 }
@@ -14,5 +16,13 @@ public int getEstadoButaca() {
 }
 public void setEstadoButaca(int estadoButaca) {
 	this.estadoButaca = estadoButaca;
+}
+
+public int getId_sala() {
+	return id_sala;
+}
+
+public void setId_sala(int id_sala) {
+	this.id_sala = id_sala;
 }
 }
