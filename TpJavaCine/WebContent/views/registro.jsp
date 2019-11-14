@@ -17,7 +17,15 @@
     <input type="text" name="nombre"/><br><br>
     <label>Apellido</label>
     <input type="text" name="apellido"/><br><br>
+    <label>IdCliente</label>
+    <input type="text" name="idcli"/><br><br>
+    <label>Estado</label>
+    <input type="text" name="estado"/><br><br>
+      <label>Rol</label>
+    <input type="text" name="rol"/><br><br>
+    
     <input type="submit" value="Registrarme"/>
     </form>
 </body>
 </html>
+	

@@ -45,7 +45,7 @@ public class InicioSesion extends HttpServlet {
 		
 		if(a!=null) 
 		{
-			response.sendRedirect("menu.jsp");
+			response.sendRedirect("main.jsp");
 		sesion.setAttribute("user", du.getByEmail(email));}
 		else {
 	 		 request.getSession().setAttribute("errorLogin", "Usuario y/o contraseña incorrecta");	
