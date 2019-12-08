@@ -11,19 +11,19 @@ import entities.Usuario;
 public class DataUsuario {
 	private static String driver="com.mysql.jdbc.Driver";
 
-	public boolean registrarUsuario(String email, String apellido, String nombre, String pass,int idcli,String estad,String rol) {
+	public boolean registrarUsuario(String email, String apellido, String nombre, String pass,int id,int estado,int rol) {
 	
 		PreparedStatement pst = null;
 		try {
-			String consulta = "insert into usuarios (emailUsuario, apellidoUsuario, nombreUsuario, passUsuario,id_cliente,estado,rol)values (?,?,?,?,?,?,?)";
+			String consulta = "insert into usuarios (email, apellido, nombre, pass,id,estado,rol)values (?,?,?,?,?,?,?)";
 			pst =Conexion.getInstancia().getConn().prepareStatement(consulta);
 			pst.setString(1, email);
 			pst.setString(2, apellido);
 			pst.setString(3, nombre);
 			pst.setString(4, pass);
-			pst.setInt(5, idcli);
-			pst.setString(6, estad);
-			pst.setString(7, rol);
+			pst.setInt(5, id);
+			pst.setInt(6, estado);
+			pst.setInt(7, rol);
 			
 			
 			if(pst.executeUpdate() ==1) {
@@ -50,8 +50,8 @@ public class DataUsuario {
 		ResultSet rs=null;
 		boolean a=false;
 		try {Class.forName(driver);
-			String consulta="select * from usuarios where emailUsuario=" + "\""
-					+ email + "\" and passUsuario=" + "\"" + pass + "\";";
+			String consulta="select * from usuarios where email=" + "\""
+					+ email + "\" and pass=" + "\"" + pass + "\";";
 			Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/cine", "root", "lalo123");
 		
 			Statement stmt = conn.createStatement();
@@ -68,12 +68,12 @@ public class DataUsuario {
 			System.err.println("Error "+e);
 		}finally {
 			
-			/*
+			
 			//if(Conexion.getInstancia().getConn()!= null) Conexion.getInstancia().getConn().close();
 			//if(pst!=null)pst.close();
 			//if(rs!=null)
 			
-				*/
+			
 			}
 		if(a) {return true;}else {return false;}
 			
@@ -87,7 +87,7 @@ public class DataUsuario {
 		PreparedStatement pst=null;
 		ResultSet rs=null;
 		try {
-			String consulta = "select * from usuarios where emailUsuario=?";
+			String consulta = "select * from usuarios where email=?";
 			pst = Conexion.getInstancia().getConn().prepareStatement(consulta);
 			pst.setString(1, email);
 			rs=pst.executeQuery();	
@@ -95,12 +95,12 @@ public class DataUsuario {
 			if(rs!=null && rs.next()) 
 		{
 				usuario = new Usuario();	
-				usuario.setIdUsuario(rs.getInt("idUsuario"));
-				usuario.setEmail(rs.getString("emailUsuario"));
-				usuario.setNombre(rs.getString("nombreUsuario"));
-				usuario.setApellido(rs.getString("apellidoUsuario"));
-				usuario.setPass(rs.getString("passUsuario"));
-				usuario.setId_cliente(rs.getInt("id_cliente"));
+				usuario.setId(rs.getInt("id"));
+				usuario.setEmail(rs.getString("email"));
+				usuario.setNombre(rs.getString("nombre"));
+				usuario.setApellido(rs.getString("apellido"));
+				usuario.setPass(rs.getString("pass"));
+				usuario.setId_cliente(rs.getInt("id"));
 				usuario.setEstado(rs.getString("estado"));
 				usuario.setRol(rs.getString("rol"));
 				
