@@ -10,11 +10,11 @@
 	<hr>
 	<a href="sala/menuSala.jsp">Sala</a><hr>
 	
-<a href="butaca/butacas.jsp">Butacas</a><hr>
+<a href="butaca/menuButaca.jsp">Butacas</a><hr>
 	
-<a href="pelicula/peliculas.jsp">Peliculas</a><hr>
+<a href="pelicula/menuPelicula.jsp">Peliculas</a><hr>
 	
-<a href="funcion/funciones.jsp">Funciones</a><hr>
+<a href="funciones/menufuncion.jsp">Funciones</a><hr>
 	
 </body>
 	
