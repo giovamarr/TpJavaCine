@@ -4,9 +4,8 @@ import java.util.*;
 public class Reserva {
 	
 	private int idReserva;
-private java.sql.Date fechaCompra;
-private int horaCompra;  //hay que ver el tipo time que no se la liberia
-private int id_cliente;
+private java.sql.Date fechaHoraCompra;  //hay que ver el tipo time que no se la liberia
+private int idUsuario;
 private int idbutaca;
 private int idFuncion;
 
@@ -14,25 +13,17 @@ private int idFuncion;
 
 public Reserva() {};
 
-
-public int getHoraCompra() {
-	return horaCompra;
-}
-public void setHoraCompra(int horaCompra) {
-	this.horaCompra = horaCompra;
-}
-
 public int getIdReserva() {
 	return idReserva;
 }
 public void setIdReserva(int idReserva) {
 	this.idReserva = idReserva;
 }
-public int getId_cliente() {
-	return id_cliente;
+public int getIdUsuario() {
+	return idUsuario;
 }
-public void setId_cliente(int id_cliente) {
-	this.id_cliente = id_cliente;
+public void setId_cliente(int id) {
+	this.idUsuario = id;
 }
 public int getIdbutaca() {
 	return idbutaca;
@@ -48,12 +39,12 @@ public void setIdFuncion(int idFuncion) {
 }
 
 
-public java.sql.Date getFechaCompra() {
-	return fechaCompra;
+public java.sql.Date getFechaHoraCompra() {
+	return fechaHoraCompra;
 }
 
 
-public void setFechaCompra(java.sql.Date fechaCompra) {
-	this.fechaCompra = fechaCompra;
+public void setFechaHoraCompra(java.sql.Date fechaCompra) {
+	this.fechaHoraCompra = fechaCompra;
 }
 }
