@@ -16,6 +16,6 @@
     <input type="submit" value="Iniciar sesion" />
     </form>
     
-    Registrarme  <a href="views/registro.jsp">click aca</a>
+    Registrarme  <a href="registro.jsp">click aca</a>
 </body>
 </html>

@@ -129,10 +129,10 @@ public class DataUsuario {
 		Usuario usuario = new Usuario();
 		try {
 			usuario.setEmail(rs.getString("email"));
+			usuario.setPass(rs.getString("pass"));
 			usuario.setNombre(rs.getString("nombre"));
 			usuario.setApellido(rs.getString("apellido"));
 			usuario.setRol(rs.getString("rol"));
-			usuario.setPass(rs.getString("pass"));
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -140,9 +140,40 @@ public class DataUsuario {
 		
 		return usuario;
 		
-	}*/
-	
-	
+	}
+	*/
+	public void IngresarUsuario (Usuario usu) {
+		
+		PreparedStatement pst = null;
+		
+		try 
+		{
+			String consulta = "insert into usuarios (email,pass,nombre, apellido) VALUES (?,?,?,?) ";
+			pst = Conexion.getInstancia().getConn().prepareStatement(consulta);
+			pst.setString(1, usu.getEmail());
+			pst.setString(2, usu.getPass());
+			pst.setString(3, usu.getNombre());
+			pst.setString(4, usu.getApellido());
+			//pst.setString(5, "cliente");
+			//pst.setString(6, "activo");
+			
+		    pst.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(Conexion.getInstancia().getConn()!= null) Conexion.getInstancia().getConn().close();
+				if(pst!=null)pst.close();
+				}
+				catch(Exception e) {
+					System.err.println("Error "+e);
+				}
+		}
+		
+		
+	}
 
 	}
 

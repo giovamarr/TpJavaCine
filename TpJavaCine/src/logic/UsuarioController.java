@@ -23,6 +23,22 @@ public class UsuarioController {
 
 	}
 	
+	public Usuario setUsuario(String email, String pass, String apellido, String nombre) {
+		
+		DataUsuario dusu = new DataUsuario();
+		Usuario usu = new Usuario();
+    
+        
+    	usu.setEmail(email);
+        usu.setPass(pass);
+		usu.setNombre(nombre); 
+		usu.setApellido(apellido); 
+	
+		dusu.IngresarUsuario(usu);
+		
+		return usu;
+	}
+	
 	
 	public Usuario getByEmail(String email) 
 	{

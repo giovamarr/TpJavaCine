@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import entities.Usuario;
+import logic.UsuarioController;
+
 /**
  * Servlet implementation class RegistroUsuario
  */
@@ -32,15 +35,20 @@ public class RegistroUsuario extends HttpServlet {
 		
 	HttpSession sesion = request.getSession();
 
-		
-
         String email = request.getParameter("email");
         String pass = request.getParameter("pass");
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
-
-		//hay que verificar que el usuario ingresado no este repetido y guardar todo en la bd
-		
+        
+        
+        UsuarioController usuCon = new UsuarioController();
+        
+        Usuario usu = usuCon.setUsuario(email,pass, apellido,nombre);
+        response.sendRedirect("index.jsp");
+        
+      //HAY QUE VALIDAR QUE EL MAIL INGRESADO NO ESTE REGISTRADO YA
+        
+        
 	}
 
 	/**
