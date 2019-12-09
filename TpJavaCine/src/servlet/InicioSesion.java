@@ -55,7 +55,7 @@ public class InicioSesion extends HttpServlet {
       
     	sesion.setAttribute("usuarioActual", usu);
     	
-    	response.sendRedirect("views/registro.jsp");	
+    	response.sendRedirect("views/menu.jsp");	
         	
 		}
     	 else 

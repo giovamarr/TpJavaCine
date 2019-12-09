@@ -6,23 +6,23 @@
 
 <h2>Menu</h2>
 	<hr>
-	<a href="views/abms.jsp">ABMS</a><div>
+	<a href="abms.jsp">ABMS</a><div>
 		<hr>
 	</div>
 	
-<a href="views/venta.jsp">Venta de Entradas</a><div>
+<a href="venta.jsp">Venta de Entradas</a><div>
 		<hr>
 	</div>
 	
-<a href="views/devolucion.jsp">Devolucion de Entradas</a><div>
+<a href="devolucion.jsp">Devolucion de Entradas</a><div>
 		<hr>
 	</div>
 	
-<a href="views/listaventasporpeli.jsp">Listado de Ventas por Pelicula</a><div>
+<a href="listaventasporpeli.jsp">Listado de Ventas por Pelicula</a><div>
 		<hr>
 	</div>
 	
-<a href="views/listaporfuncion.jsp">Listado de cantidad de entradas por función</a><div>
+<a href="listaporfuncion.jsp">Listado de cantidad de entradas por función</a><div>
 		<hr>
 	</div>
 </body>

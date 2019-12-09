@@ -32,16 +32,14 @@ public class SalaServlet extends HttpServlet {
 		
 		String opcion = request.getParameter("opcion");
 
-			if (opcion.equals("crear")) {
-		RequestDispatcher requestDispatcher= request.getRequestDispatcher("/views/crearSala.jsp");
-			requestDispatcher.forward(request, response);}
+			if (opcion.equals("guardar")) {
+	}
 			
 			else if (opcion.equals("modificar")){
-				RequestDispatcher requestDispatcher= request.getRequestDispatcher("/views/modificarSala.jsp");
-			requestDispatcher.forward(request, response);} 
+			} 
 			
 				else if (opcion.equals("borrar")) {
-					System.out.println("borrar");}
+			}
 			
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}

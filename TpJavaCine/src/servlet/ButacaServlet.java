@@ -6,22 +6,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import entities.Usuario;
-import logic.UsuarioController;
 
 /**
- * Servlet implementation class RegistroUsuario
+ * Servlet implementation class ButacaServlet
  */
-@WebServlet("/RegistroUsuario")
-public class RegistroUsuario extends HttpServlet {
+@WebServlet("/ButacaServlet")
+public class ButacaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegistroUsuario() {
+    public ButacaServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,24 +28,6 @@ public class RegistroUsuario extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		
-	HttpSession sesion = request.getSession();
-
-        String email = request.getParameter("email");
-        String pass = request.getParameter("pass");
-        String nombre = request.getParameter("nombre");
-        String apellido = request.getParameter("apellido");
-        
-        
-        UsuarioController usuCon = new UsuarioController();
-        
-        Usuario usu = usuCon.setUsuario(email,pass, apellido,nombre);
-        request.getSession().setAttribute("registroExitoso", "Te has registrado exitosamente!");	
- 		response.sendRedirect("index.jsp");
-        
-      //HAY QUE VALIDAR QUE EL MAIL INGRESADO NO ESTE REGISTRADO YA
-        
-        
 	}
 
 	/**

@@ -8,13 +8,13 @@
 
 <h2>ABMS</h2>
 	<hr>
-	<a href="views/crearSala.jsp">Sala</a><hr>
+	<a href="sala/menuSala.jsp">Sala</a><hr>
 	
-<a href="views/butacas.jsp">Butacas</a><hr>
+<a href="butaca/butacas.jsp">Butacas</a><hr>
 	
-<a href="views/peliculas.jsp">Peliculas</a><hr>
+<a href="pelicula/peliculas.jsp">Peliculas</a><hr>
 	
-<a href="views/funciones.jsp">Funciones</a><hr>
+<a href="funcion/funciones.jsp">Funciones</a><hr>
 	
 </body>
 	
