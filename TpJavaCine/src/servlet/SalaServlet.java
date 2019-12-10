@@ -36,7 +36,7 @@ public class SalaServlet extends HttpServlet {
 		String opcion = request.getParameter("opcion");
 		int nroSala = Integer.parseInt(request.getParameter("nroSala"));
 
-			if (opcion.equals("guardar")) {
+			if (opcion.equals("Guardar")) {
 				
 				SalaController sCon = new SalaController();
 		        
@@ -46,10 +46,26 @@ public class SalaServlet extends HttpServlet {
 	}
 			
 			else if (opcion.equals("modificar")){
+				
+				SalaController sCon = new SalaController();
+		        
+		        Sala sala = sCon.GetOne(nroSala);
+		    
+		 		response.sendRedirect("datosSala.jsp");
+				
+				
 			} 
 			
 				else if (opcion.equals("borrar")) {
+					SalaController sCon = new SalaController();
+			        
+			        Sala sala = sCon.GetOne(nroSala);
+			        if(sala!=null)
+			        {
+			        	sCon.SalaenMantenimiento(sala);
 			}
+			        
+				}
 			
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
