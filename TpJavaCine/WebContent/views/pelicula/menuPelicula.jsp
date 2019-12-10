@@ -11,13 +11,13 @@
 <h1>Menu de Opciones de Pelicula</h1>
 <table border="1">
    <tr>
-    <td> <a href="pelicula/crearPelicula.jsp"> Crear Pelicula </a></td>
+    <td> <a href="crearPelicula.jsp"> Crear Pelicula </a></td>
    </tr>
    <tr>
-   <td> <a href="pelicula/modificarPelicula.jsp"> Modificar Pelicula </a></td>
+   <td> <a href="modificarPelicula.jsp"> Modificar Pelicula </a></td>
    </tr>
    <tr>
-   <td> <a href="pelicula/borrarPelicula.jsp"> Borrar Pelicula </a></td>
+   <td> <a href="borrarPelicula.jsp"> Borrar Pelicula </a></td>
    </tr>
 </table>
 </body>

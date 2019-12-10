@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form action="ButacaServlet" method ="post">
+<form action="PeliculaServlet" method ="post">
    <input type="hidden" name="opcion" value="guardar">
      <h1>Ingrese el numero de la pelicula que desea crear:</h1>
        <input type="number" name="nropeli" >

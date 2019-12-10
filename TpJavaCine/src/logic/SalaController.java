@@ -3,7 +3,9 @@ package logic;
 import java.util.ArrayList;
 
 import data.DataSala;
+import data.DataUsuario;
 import entities.Sala;
+import entities.Usuario;
 
 public class SalaController {
 	
@@ -31,5 +33,21 @@ public void PonerSalaDisp(Sala sal) {
 	DataSala ds=new DataSala();
 ds.PonerSalaDisp(sal);
 }
+
+public Sala setSala (int nroSala) {
+	
+	DataSala dsala = new DataSala();
+	Sala sala = new Sala();
+
+    
+	sala.setNroSala(nroSala);
+	sala.setEstadoSala(1);
+    
+
+	dsala.IngresarSala(sala);
+	
+	return sala;
+}
+
 		
 }

@@ -14,7 +14,7 @@
 	
 <a href="pelicula/menuPelicula.jsp">Peliculas</a><hr>
 	
-<a href="funciones/menufuncion.jsp">Funciones</a><hr>
+<a href="funcion/menufuncion.jsp">Funciones</a><hr>
 	
 </body>
 	

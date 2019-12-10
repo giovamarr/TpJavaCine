@@ -11,13 +11,13 @@
 <h1>Menu de Opciones de Funcion</h1>
 <table border="1">
    <tr>
-    <td> <a href="funciones/crearFuncion.jsp"> Crear Funcion </a></td>
+    <td> <a href="crearFuncion.jsp"> Crear Funcion </a></td>
    </tr>
    <tr>
-   <td> <a href="funciones/modificarFuncion.jsp"> Modificar Funcion </a></td>
+   <td> <a href="modificarFuncion.jsp"> Modificar Funcion </a></td>
    </tr>
    <tr>
-   <td> <a href="funciones/borrarFuncion.jsp"> Borrar Funcion </a></td>
+   <td> <a href="borrarFuncion.jsp"> Borrar Funcion </a></td>
    </tr>
 </table>
 </body>

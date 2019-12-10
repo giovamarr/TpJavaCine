@@ -21,8 +21,7 @@ public ArrayList<Reserva> GetAll(){
 		{			
 				Reserva reserva = new Reserva();
 				reserva.setId_cliente(rs.getInt("id_cliente"));
-				reserva.setFechaCompra(rs.getDate("fechaCompra"));
-				reserva.setHoraCompra(rs.getInt("horaCompra"));
+				reserva.setFechaHoraCompra(rs.getDate("fechaCompra"));
 				reserva.setIdReserva(rs.getInt("idReserva"));
 				reserva.setIdbutaca(rs.getInt("idbutaca"));
 				reserva.setIdFuncion(rs.getInt("idFuncion"));
@@ -57,8 +56,7 @@ public ArrayList<Reserva> GetAll(){
 			if(rs.next()) 
 		{
 				reserva.setId_cliente(rs.getInt("id_cliente"));
-				reserva.setFechaCompra(rs.getDate("fechaCompra"));
-				reserva.setHoraCompra(rs.getInt("horaCompra"));
+				reserva.setFechaHoraCompra(rs.getDate("fechaCompra"));
 				reserva.setIdReserva(rs.getInt("idReserva"));
 				reserva.setIdbutaca(rs.getInt("idbutaca"));
 				reserva.setIdFuncion(rs.getInt("idFuncion"));
@@ -119,12 +117,11 @@ public void Update(Reserva res) {
 		PreparedStatement pst=null;
 		ResultSet rs=null;
 		try {
-			String consulta = "Update funcion set fechaCompra=?,horaCompra=?,id_cliente=?,idbutaca=?,idFuncion=? where idReserva==?";
+			String consulta = "Update funcion set fechaHoraCompra=?,,idUsuario=?,idButaca=?,idFuncion=? where idReserva==?";
 
 			pst =Conexion.getInstancia().getConn().prepareStatement(consulta);	
-			pst.setDate(1, res.getFechaCompra());
-			pst.setInt(2,res.getHoraCompra());
-			pst.setInt(3,res.getId_cliente());
+			pst.setDate(1, res.getFechaHoraCompra());
+			pst.setInt(3,res.getIdUsuario());
 			pst.setInt(4,res.getIdbutaca());
 			pst.setInt(5,res.getIdFuncion());
 			
@@ -155,9 +152,8 @@ public void Insert(Reserva res) {
 	try {
 		String consulta = "insert into funcion (fechaCompra, horaCommpra,id_cliente,idbutaca,idFuncion)values (?,?,?,?,?)";
 		pst = getConn().prepareStatement(consulta);	
-		pst.setDate(1, res.getFechaCompra());
-		pst.setInt(2,res.getHoraCompra());
-		pst.setInt(3,res.getId_cliente());
+		pst.setDate(1, res.getFechaHoraCompra());
+		pst.setInt(3,res.getIdUsuario());
 		pst.setInt(4,res.getIdbutaca());
 		pst.setInt(5,res.getIdFuncion());
 		pst.executeUpdate();

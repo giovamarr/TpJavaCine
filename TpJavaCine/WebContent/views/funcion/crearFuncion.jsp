@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form action="ButacaServlet" method ="post">
+<form action="FuncionServlet" method ="post">
    <input type="hidden" name="opcion" value="guardar">
      <h1>Ingrese el numero de la funcion que desea crear:</h1>
        <input type="number" name="nrofuncion" >

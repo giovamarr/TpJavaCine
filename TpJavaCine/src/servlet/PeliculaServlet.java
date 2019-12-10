@@ -1,28 +1,23 @@
 package servlet;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import entities.Sala;
-import logic.SalaController;
-
 /**
- * Servlet implementation class SalaServlet
+ * Servlet implementation class PeliculaServlet
  */
-@WebServlet("/SalaServlet")
-public class SalaServlet extends HttpServlet {
+@WebServlet("/PeliculaServlet")
+public class PeliculaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SalaServlet() {
+    public PeliculaServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,26 +27,7 @@ public class SalaServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		String opcion = request.getParameter("opcion");
-		int nroSala = Integer.parseInt(request.getParameter("nroSala"));
-
-			if (opcion.equals("guardar")) {
-				
-				SalaController sCon = new SalaController();
-		        
-		        Sala sala = sCon.setSala(nroSala);
-		    
-		 		response.sendRedirect("index.jsp");
-	}
-			
-			else if (opcion.equals("modificar")){
-			} 
-			
-				else if (opcion.equals("borrar")) {
-			}
-			
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -59,13 +35,7 @@ public class SalaServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		
-		
-		
-		
-		
-		//doGet(request, response);
+		doGet(request, response);
 	}
 
 }

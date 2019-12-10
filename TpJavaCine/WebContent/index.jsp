@@ -18,4 +18,4 @@
     
     Registrarme  <a href="registro.jsp">click aca</a>
 </body>
-</html>
+</html>  

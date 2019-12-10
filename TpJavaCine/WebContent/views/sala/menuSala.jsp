@@ -11,13 +11,13 @@
 <h1>Menu de Opciones de Sala</h1>
 <table border="1">
    <tr>
-    <td> <a href="sala/crearSala.jsp"> Crear Sala </a></td>
+    <td> <a href="crearSala.jsp"> Crear Sala </a></td>
    </tr>
    <tr>
-   <td> <a href="sala/modificarSala.jsp"> Modificar Sala </a></td>
+   <td> <a href="modificarSala.jsp"> Modificar Sala </a></td>
    </tr>
    <tr>
-  <td> <a href="sala/borrarSala.jsp"> Borrar Sala </a></td>
+  <td> <a href="borrarSala.jsp"> Borrar Sala </a></td>
    </tr>
 </table>
 </body>

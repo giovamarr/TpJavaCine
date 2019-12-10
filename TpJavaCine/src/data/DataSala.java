@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import entities.Reserva;
 import entities.Sala;
+import entities.Usuario;
 
 //import entities.Sala;
 public class DataSala extends Conexion{
@@ -26,7 +27,7 @@ public ArrayList<Sala> GetAllSalasDisp(){
 				Sala sal = new Sala();
 
 				sal.setNroSala(rs.getInt("nroSala"));
-				sal.setestadoSala(rs.getInt("estadoSala"));
+				sal.setEstadoSala(rs.getInt("estadoSala"));
 				salas.add(sal);										
 				}								
 				
@@ -61,7 +62,7 @@ public ArrayList<Sala> GetAllSalasenMantenimiento(){
 				Sala sal = new Sala();
 
 				sal.setNroSala(rs.getInt("nroSala"));
-				sal.setestadoSala(rs.getInt("estadoSala"));
+				sal.setEstadoSala(rs.getInt("estadoSala"));
 				salas.add(sal);										
 				}								
 				
@@ -83,7 +84,7 @@ public ArrayList<Sala> GetAllSalasenMantenimiento(){
 
 	public Sala GetOne(int id) {
 		Sala sal = new Sala();
-		String consulta = "select * from salas where nrosala=?";		
+		String consulta = "select * from salas where nroSala=?";		
 		PreparedStatement pst=null;
 		ResultSet rs=null;
 		try {
@@ -93,7 +94,7 @@ public ArrayList<Sala> GetAllSalasenMantenimiento(){
 			if(rs.next()) 
 		{
 				sal.setNroSala(rs.getInt("nroSala"));
-				sal.setestadoSala(rs.getInt("estadoSala"));
+				sal.setEstadoSala(rs.getInt("estadoSala"));
 		}
 			
 		} catch (SQLException e) {
@@ -169,7 +170,33 @@ public void PonerSalaDisp(Sala sal) {
 				}
 		}
 	}
-
+public void IngresarSala (Sala sala) {
 	
+	PreparedStatement pst = null;
+	
+	try 
+	{
+		String consulta = "insert into salas (nroSala,estadoSala) VALUES (?,?) ";
+		pst = Conexion.getInstancia().getConn().prepareStatement(consulta);
+		pst.setInt(1, sala.getNroSala());
+		pst.setInt(2, '1');
+
+	    pst.executeUpdate();
+		
+		
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}finally {
+		try {
+			if(Conexion.getInstancia().getConn()!= null) Conexion.getInstancia().getConn().close();
+			if(pst!=null)pst.close();
+			}
+			catch(Exception e) {
+				System.err.println("Error "+e);
+			}
+	}
+	
+
+}
 
 }

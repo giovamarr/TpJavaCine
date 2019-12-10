@@ -2,7 +2,7 @@ package entities;
 
 public class Sala {
 private	int nroSala;
-private int estadoSala;//1-mantenimiento 2- disponible
+private int estadoSala;//0-mantenimiento 1- disponible
 //array de clase butacas
 public int getNroSala() {
 	return nroSala;}
@@ -10,9 +10,9 @@ public int getNroSala() {
 public void setNroSala(int nroSala) {
 	this.nroSala = nroSala;
 }
-public int geestadoSala() {
+public int getEstadoSala() {
 	return estadoSala;}
  
-public void setestadoSala(int estadoSala) {
+public void setEstadoSala(int estadoSala) {
 	this.estadoSala = estadoSala;
 }}

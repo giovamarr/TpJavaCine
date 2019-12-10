@@ -11,13 +11,13 @@
 <h1>Menu de Opciones de Butaca</h1>
 <table border="1">
    <tr>
-    <td> <a href="butaca/crearButaca.jsp"> Crear Butaca </a></td>
+    <td> <a href="crearButaca.jsp"> Crear Butaca </a></td>
    </tr>
    <tr>
-   <td> <a href="butaca/modificarButaca.jsp"> Modificar Butaca </a></td>
+   <td> <a href="modificarButaca.jsp"> Modificar Butaca </a></td>
    </tr>
    <tr>
-   <td> <a href="butaca/borrarButaca.jsp"> Borrar Butaca </a></td>
+   <td> <a href="borrarButaca.jsp"> Borrar Butaca </a></td>
    </tr>
 </table>
 </body>
