@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form action="salaServlet" method ="post">
+<form action="SalaServlet" method ="post">
   <input type="hidden" name="opcion" value="borrar">
      <h1>Ingrese el numero de la sala que desea borrar:</h1>
        <input type="number" name="nroSala">

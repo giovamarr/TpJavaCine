@@ -13,7 +13,9 @@
      <h1>Ingrese el numero de la Pelicula que desea editar:</h1>
        <input type="number" name="nropelicula">
        <input type="submit" value="Buscar">
-</form>
-
+ 
+	</form>
+	
+	
 </body>
 </html>

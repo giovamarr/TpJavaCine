@@ -11,7 +11,7 @@
 <h1>Menu de Opciones de Sala</h1>
 <table border="1">
    <tr>
-    <td> <a href="crearSala.jsp"> Crear Sala </a></td>
+    <td> <a href="crearSala.jsp" > Crear Sala </a></td>
    </tr>
    <tr>
    <td> <a href="modificarSala.jsp"> Modificar Sala </a></td>
