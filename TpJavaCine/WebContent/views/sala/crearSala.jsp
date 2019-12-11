@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form action="/TpJavaCine/src/servlet/SalaServlet.java" method ="post">
+<form action="../../SalaServlet" method ="post">
    <input type="hidden" name="opcion" value="guardar">
      <h1>Ingrese el numero de la sala que desea crear:</h1>
        <input type="number" name="nroSala" >
