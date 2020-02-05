@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form action="ButacaServlet" method ="post">
+<form action="../../ButacaServlet" method ="post">
   <input type="hidden" name="opcion" value="modificar">
      <h1>Ingrese el numero de la butaca que desea editar:</h1>
        <input type="number" name="nroButaca">

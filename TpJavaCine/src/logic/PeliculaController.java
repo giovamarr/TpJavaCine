@@ -24,6 +24,11 @@ public class PeliculaController {
 		DataPelicula dp=new DataPelicula();
 		dp.Delete(peli);
 	}
+	
+	public Pelicula GetOne(String nombre) {
+		DataPelicula dp=new DataPelicula();
+		return dp.GetOne(nombre);
+	}
 
 public void Update(Pelicula peli) {
 	DataPelicula dp=new DataPelicula();

@@ -15,9 +15,9 @@
     <label>Codigo de Pelicula</label>
     <input type="text" name="codpeli"/><br><br>
    <label>Hora de Funciom</label>
-    <input type="text" name="horafuncion"/><br><br>
+    <input type="time" name="horafuncion"/><br><br>
     <label>Dia de Funcion</label>
-    <input type="text" name="diafuncion"/><br><br>
+    <input type="date" name="diafuncion"/><br><br>
     <input type="submit" value="Aceptar"/>
     </form>
 </body>

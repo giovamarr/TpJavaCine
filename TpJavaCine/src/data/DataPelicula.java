@@ -113,7 +113,39 @@ public class DataPelicula extends Conexion{
 		
 	}
 	
-	
+
+	public Pelicula GetOne(String nombre) {
+		Pelicula peli = new Pelicula();
+		String consulta = "select * from peliculas where nombrePelicula=?";		
+		PreparedStatement pst=null;
+		ResultSet rs=null;
+		try {
+			pst = getConn().prepareStatement(consulta);
+			pst.setString(1, nombre);
+			rs=pst.executeQuery();	
+			if(rs.next()) 
+		{
+				peli.setCodPelicula(rs.getInt("codPelicula"));
+				peli.setDescPelicula(rs.getString("descripcionPelicula"));
+				peli.setNombrePelicula(rs.getString("nombrePelicula"));							
+		}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(getConn()!= null) getConn().close();
+				if(pst!=null)pst.close();
+				if(rs!=null)rs.close();
+				}
+				catch(Exception e) {
+					System.err.println("Error "+e);
+				}
+		}
+		
+		return peli;
+		
+	}
 	
 	public void Delete(Pelicula peli) {
 		

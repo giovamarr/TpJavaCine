@@ -8,10 +8,15 @@
 </head>
 <body>
 
-<form action="PeliculaServlet" method ="post">
+<form action="../../PeliculaServlet" method ="post">
    <input type="hidden" name="opcion" value="guardar">
-     <h1>Ingrese el numero de la pelicula que desea crear:</h1>
-       <input type="number" name="nropeli" >
+     <h1>Nueva Pelicula</h1>
+     <label>Nro de Pelicula</label>
+       <input type="number" name="nropeli" ><br><br>
+        <label>Nombre de la Pelicula</label>
+       <input type="number" name="nombrepeli" ><br><br>
+    <label>Descripcion</label>
+   <input type="number" name="descpeli"/><br><br>
        <input type="submit" value="Guardar">
 </form>
 

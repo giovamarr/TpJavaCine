@@ -95,6 +95,7 @@ public ArrayList<Sala> GetAllSalasenMantenimiento(){
 		{
 				sal.setNroSala(rs.getInt("nroSala"));
 				sal.setEstadoSala(rs.getInt("estadoSala"));
+				sal.setCantbutacas(rs.getInt("cantbutacas"));
 		}
 			
 		} catch (SQLException e) {
@@ -176,11 +177,11 @@ public void IngresarSala (Sala sala) {
 	
 	try 
 	{
-		String consulta = "insert into salas (nroSala,estadoSala) VALUES (?,?) ";
+		String consulta = "insert into salas (nroSala,estadoSala,cantbutacas) VALUES (?,?) ";
 		pst = Conexion.getInstancia().getConn().prepareStatement(consulta);
 		pst.setInt(1, sala.getNroSala());
-		pst.setInt(2, '1');
-
+		pst.setInt(2, sala.getEstadoSala());
+pst.setInt(3, sala.getCantbutacas());
 	    pst.executeUpdate();
 		
 		

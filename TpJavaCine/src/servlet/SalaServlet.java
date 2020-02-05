@@ -36,14 +36,23 @@ public class SalaServlet extends HttpServlet {
 		String opcion = request.getParameter("opcion");
 		int nroSala = Integer.parseInt(request.getParameter("nroSala"));
 
-			if (opcion.equals("Guardar")) {
+			if (opcion.equals("guardar")) {
 				
+				int cantbutacas = Integer.parseInt(request.getParameter("nrobutacas"));
 				SalaController sCon = new SalaController();
+				
+				if(sCon.GetOne(nroSala)== null) {
 		        
-		        Sala sala = sCon.setSala(nroSala);
+		        sCon.nuevaSala(nroSala, cantbutacas);
+				}		        
 		    
-		 		response.sendRedirect("index.jsp");
-	}
+		 		response.sendRedirect("menu.jsp");
+		 		
+			}
+			
+			
+			
+			
 			
 			else if (opcion.equals("modificar")){
 				
@@ -51,12 +60,23 @@ public class SalaServlet extends HttpServlet {
 		        
 		        Sala sala = sCon.GetOne(nroSala);
 		    
-		 		response.sendRedirect("datosSala.jsp");
-				
+		 		if(sala!=null)
+			{
+		 			response.sendRedirect("datosSala.jsp");
+		 			
+		 			sala.setEstadoSala(Integer.parseInt(request.getParameter("estadoSala")));
+		 			sala.setCantbutacas(Integer.parseInt(request.getParameter("nrobutacas")));	
+		 	sCon.Insert(sala);		
+			}	
 				
 			} 
 			
-				else if (opcion.equals("borrar")) {
+			
+			
+			
+			
+				else if (opcion.equals("borrar")) //poner sala en mantenimiento
+					{
 					SalaController sCon = new SalaController();
 			        
 			        Sala sala = sCon.GetOne(nroSala);

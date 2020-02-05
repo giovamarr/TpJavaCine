@@ -10,8 +10,12 @@
 
 <form action="../../SalaServlet" method ="post">
    <input type="hidden" name="opcion" value="guardar">
-     <h1>Ingrese el numero de la sala que desea crear:</h1>
-       <input type="number" name="nroSala" >
+     <h1>Nueva Sala</h1>
+     
+      <label>Nro de Sala</label>
+       <input type="number" name="nroSala" ><br><br>
+    <label>Cantidad de Butacas</label>
+   <input type="number" name="nrobutacas"/><br><br>
        <input type="submit" value="Guardar">
 </form>
 

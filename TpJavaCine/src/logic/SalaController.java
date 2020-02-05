@@ -48,6 +48,29 @@ public Sala setSala (int nroSala) {
 	
 	return sala;
 }
+public void Insert (Sala s) {
+	
+	DataSala dsala = new DataSala();
+	
+
+	dsala.IngresarSala(s);
+	
+}
+
+public void nuevaSala (int nroSala,int cantbutacas) {
+	
+	DataSala dsala = new DataSala();
+	Sala sala = new Sala();
+
+    
+	sala.setNroSala(nroSala);
+	sala.setEstadoSala(1);
+    sala.setCantbutacas(cantbutacas);
+
+	dsala.IngresarSala(sala);
+	
+	
+}
 
 		
 }

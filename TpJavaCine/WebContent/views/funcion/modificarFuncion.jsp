@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form action="FuncionServlet" method ="post">
+<form action="../../FuncionServlet" method ="post">
   <input type="hidden" name="opcion" value="modificar">
      <h1>Ingrese el numero de la funcion que desea editar:</h1>
        <input type="number" name="nrofuncion">
