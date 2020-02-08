@@ -22,6 +22,8 @@
     <label>Dia de Funcion</label>
     <input type="date" name="diafuncion"/><br><br>
        <input type="submit" value="Guardar">
+        <br><br><br>
+<a href="../funcion/menufuncion.jsp">Volver</a>
 </form>
 
 </body>

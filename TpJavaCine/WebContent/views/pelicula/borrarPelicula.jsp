@@ -13,6 +13,8 @@
      <h1>Ingrese el numero de la pelicula que desea borrar:</h1>
        <input type="number" name="nropeli">
        <input type="submit" value="Buscar">
+        <br><br><br>
+<a href="../pelicula/menuPelicula.jsp">Volver</a>
 </form>
 
 </body>

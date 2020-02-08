@@ -18,6 +18,8 @@
     <label>Descripcion</label>
    <input type="number" name="descpeli"/><br><br>
        <input type="submit" value="Guardar">
+        <br><br><br>
+<a href="../pelicula/menuPelicula.jsp">Volver</a>
 </form>
 
 </body>

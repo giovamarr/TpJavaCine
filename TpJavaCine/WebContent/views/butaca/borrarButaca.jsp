@@ -13,6 +13,8 @@
      <h1>Ingrese el numero de la butaca que desea borrar:</h1>
        <input type="number" name="nroButaca">
        <input type="submit" value="Buscar">
+       <br><br><br>
+<a href="../butaca/menuButaca.jsp">Volver</a>
 </form>
 
 </body>

@@ -24,7 +24,15 @@
 	
 <a href="listaporfuncion.jsp">Listado de cantidad de entradas por función</a><div>
 		<hr>
-	</div>
+			</div>
+	
 </body>
+
+<!--
+
+ <br><br><br>
+<a href="*../../../index.jsp">Cerrar Sesion</a>
+
+-->
 	
 </html>

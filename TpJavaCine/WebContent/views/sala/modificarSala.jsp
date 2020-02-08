@@ -14,6 +14,8 @@
        <input type="number" name="nroSala">
        <input type="submit" value="Buscar">
 </form>
+ <br><br><br>
+<a href="../sala/menuSala.jsp">Volver</a>
 
 </body>
 </html>

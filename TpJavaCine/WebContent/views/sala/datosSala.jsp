@@ -16,5 +16,7 @@
    <input type="number" name="nrobutacas"/><br><br>
     <input type="submit" value="Aceptar"/>
     </form>
+     <br><br><br>
+<a href="../sala/menuSala.jsp">Volver</a>
 </body>
 </html>

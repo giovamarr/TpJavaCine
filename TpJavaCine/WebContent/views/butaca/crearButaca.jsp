@@ -13,6 +13,8 @@
      <h1>Ingrese el numero de la butaca que desea crear:</h1>
        <input type="number" name="nroButaca" >
        <input type="submit" value="Guardar">
+         <br><br><br>
+<a href="../butaca/menuButaca.jsp">Volver</a>
 </form>
 
 </body>

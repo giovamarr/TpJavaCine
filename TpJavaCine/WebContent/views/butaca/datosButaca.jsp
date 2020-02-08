@@ -15,6 +15,8 @@
     <label>Estado de la Butaca/*0-Vacia  1-Ocupada*/</label>
     <input type="text" name="estado"/><br><br>
     <input type="submit" value="Aceptar"/>
+      <br><br><br>
+<a href="../butaca/menuButaca.jsp">Volver</a>
     </form>
 </body>
 </html>

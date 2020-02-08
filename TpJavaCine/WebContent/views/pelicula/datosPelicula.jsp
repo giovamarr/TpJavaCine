@@ -16,7 +16,9 @@
     <input type="text" name="descpeli"/><br><br>
 
     
-    <input type="submit" value="Registrarme"/>
+    <input type="submit" value="Aceptar"/>
+     <br><br><br>
+<a href="../pelicula/menuPelicula.jsp">Volver</a>
     </form>
 </body>
 </html>

@@ -50,8 +50,8 @@ public class DataUsuario {
 		ResultSet rs=null;
 		boolean a=false;
 		try {Class.forName(driver);
-			String consulta="select * from usuarios where email=" + "\""
-					+ email + "\" and pass=" + "\"" + pass + "\";";
+			String consulta="select * from usuarios where email=" + "\"" + email + "\" and pass=" + "\"" + pass + "\";";
+		
 			Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/cine", "root", "lalo123");
 		
 			Statement stmt = conn.createStatement();

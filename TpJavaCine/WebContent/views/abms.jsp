@@ -15,6 +15,10 @@
 <a href="pelicula/menuPelicula.jsp">Peliculas</a><hr>
 	
 <a href="funcion/menufuncion.jsp">Funciones</a><hr>
+<div>
+		<hr>
+	</div>
+<a href="menu.jsp">Volver</a>
 	
 </body>
 	

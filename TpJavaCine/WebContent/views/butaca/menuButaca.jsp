@@ -19,7 +19,10 @@
    <tr>
    <td> <a href="borrarButaca.jsp"> Borrar Butaca </a></td>
    </tr>
-</table>
+
+</table><br>
+
+<a href="../abms.jsp">Volver</a>
 </body>
 
 </html>

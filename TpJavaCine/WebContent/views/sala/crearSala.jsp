@@ -17,6 +17,8 @@
     <label>Cantidad de Butacas</label>
    <input type="number" name="nrobutacas"/><br><br>
        <input type="submit" value="Guardar">
+        <br><br><br>
+<a href="../sala/menuSala.jsp">Volver</a>
 </form>
 
 </body>

@@ -19,7 +19,8 @@
    <tr>
    <td> <a href="borrarFuncion.jsp"> Borrar Funcion </a></td>
    </tr>
-</table>
+</table><br>
+<a href="../abms.jsp">Volver</a>
 </body>
 
 </html>

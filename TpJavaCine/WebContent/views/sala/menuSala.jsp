@@ -19,7 +19,8 @@
    <tr>
   <td> <a href="borrarSala.jsp"> Borrar Sala </a></td>
    </tr>
-</table>
+</table><br>
+<a href="../abms.jsp">Volver</a>
 </body>
 
 </html>

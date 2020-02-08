@@ -13,6 +13,8 @@
      <h1>Ingrese el numero de la sala que desea poner en Mantenimiento:</h1>
        <input type="number" name="nroSala">
        <input type="submit" value="Aceptar">
+        <br><br><br>
+<a href="../sala/menuSala.jsp">Volver</a>
 </form>
 
 </body>
