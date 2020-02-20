@@ -3,9 +3,9 @@ package logic;
 import java.util.ArrayList;
 
 import data.DataSala;
-import data.DataUsuario;
+//import data.DataUsuario;
 import entities.Sala;
-import entities.Usuario;
+//import entities.Usuario;
 
 public class SalaController {
 	
@@ -44,11 +44,11 @@ public Sala setSala (int nroSala) {
 	sala.setEstadoSala(1);
     
 
-	dsala.IngresarSala(sala);
+	dsala.IngresarSala(nroSala);
 	
 	return sala;
 }
-public void Insert (Sala s) {
+/*public void Insert (Sala s) {
 	
 	DataSala dsala = new DataSala();
 	
@@ -65,12 +65,11 @@ public void nuevaSala (int nroSala,int cantbutacas) {
     
 	sala.setNroSala(nroSala);
 	sala.setEstadoSala(1);
-    sala.setCantbutacas(cantbutacas);
 
 	dsala.IngresarSala(sala);
 	
 	
 }
-
+*/
 		
 }

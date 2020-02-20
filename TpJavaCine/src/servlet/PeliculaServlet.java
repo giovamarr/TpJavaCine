@@ -7,10 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 import entities.Pelicula;
-import entities.Sala;
 import logic.PeliculaController;
-import logic.SalaController;
+
 
 /**
  * Servlet implementation class PeliculaServlet
@@ -32,6 +32,16 @@ public class PeliculaServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+
 		
 		String opcion = request.getParameter("opcion");
 		int nropeli = Integer.parseInt(request.getParameter("nropeli"));
@@ -91,13 +101,6 @@ public class PeliculaServlet extends HttpServlet {
 			        
 				}
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
-}
+

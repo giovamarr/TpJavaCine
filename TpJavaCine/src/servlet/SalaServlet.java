@@ -2,14 +2,15 @@ package servlet;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
+//import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import entities.Sala;
+//import entities.Sala;
+//import entities.Usuario;
 import logic.SalaController;
 
 /**
@@ -36,14 +37,15 @@ public class SalaServlet extends HttpServlet {
 		String opcion = request.getParameter("opcion");
 		int nroSala = Integer.parseInt(request.getParameter("nroSala"));
 
+		response.sendRedirect("index.jsp");
 			if (opcion.equals("guardar")) {
-				
-				int cantbutacas = Integer.parseInt(request.getParameter("nrobutacas"));
+				response.sendRedirect("index.jsp");
 				SalaController sCon = new SalaController();
-				
 				if(sCon.GetOne(nroSala)== null) {
-		        
-		        sCon.nuevaSala(nroSala, cantbutacas);
+					
+			// crear sala
+					  sCon.setSala(nroSala);
+					  response.sendRedirect("index.jsp");
 				}		        
 		    
 		 		response.sendRedirect("menu.jsp");
@@ -52,7 +54,7 @@ public class SalaServlet extends HttpServlet {
 			
 			
 			
-			
+	/*		
 			
 			else if (opcion.equals("modificar")){
 				
@@ -65,7 +67,6 @@ public class SalaServlet extends HttpServlet {
 		 			response.sendRedirect("datosSala.jsp");
 		 			
 		 			sala.setEstadoSala(Integer.parseInt(request.getParameter("estadoSala")));
-		 			sala.setCantbutacas(Integer.parseInt(request.getParameter("nrobutacas")));	
 		 	sCon.Insert(sala);		
 			}	
 				
@@ -85,7 +86,7 @@ public class SalaServlet extends HttpServlet {
 			        	sCon.SalaenMantenimiento(sala);
 			}
 			        
-				}
+				}*/
 			
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}

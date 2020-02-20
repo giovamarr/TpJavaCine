@@ -14,9 +14,9 @@
      <label>Nro de Pelicula</label>
        <input type="number" name="nropeli" ><br><br>
         <label>Nombre de la Pelicula</label>
-       <input type="number" name="nombrepeli" ><br><br>
+       <input type="text" name="nombrepeli" ><br><br>
     <label>Descripcion</label>
-   <input type="number" name="descpeli"/><br><br>
+   <input type="text" name="descpeli"/><br><br>
        <input type="submit" value="Guardar">
         <br><br><br>
 <a href="../pelicula/menuPelicula.jsp">Volver</a>

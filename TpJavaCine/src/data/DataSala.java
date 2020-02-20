@@ -5,9 +5,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import entities.Reserva;
+//import entities.Reserva;
 import entities.Sala;
-import entities.Usuario;
+//import entities.Usuario;
 
 //import entities.Sala;
 public class DataSala extends Conexion{
@@ -171,19 +171,21 @@ public void PonerSalaDisp(Sala sal) {
 				}
 		}
 	}
-public void IngresarSala (Sala sala) {
+public boolean IngresarSala (int nroSala) {
 	
 	PreparedStatement pst = null;
 	
 	try 
 	{
-		String consulta = "insert into salas (nroSala,estadoSala,cantbutacas) VALUES (?,?) ";
+		String consulta = "insert into salas (nroSala,estadoSala) VALUES (?,?) ";
 		pst = Conexion.getInstancia().getConn().prepareStatement(consulta);
-		pst.setInt(1, sala.getNroSala());
-		pst.setInt(2, sala.getEstadoSala());
-pst.setInt(3, sala.getCantbutacas());
+		pst.setInt(1, nroSala);
+		pst.setInt(2, 1);
 	    pst.executeUpdate();
-		
+	    
+	    if(pst.executeUpdate() ==1) {
+			return true;
+			}
 		
 	} catch (SQLException e) {
 		e.printStackTrace();
@@ -197,7 +199,7 @@ pst.setInt(3, sala.getCantbutacas());
 			}
 	}
 	
-
+	return false;
 }
 
 }
