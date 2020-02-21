@@ -1,18 +1,13 @@
 package servlet;
 
 import java.io.IOException;
-
-//import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//import entities.Sala;
-//import entities.Usuario;
 import logic.SalaController;
-
 /**
  * Servlet implementation class SalaServlet
  */
@@ -33,27 +28,28 @@ public class SalaServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
 		String opcion = request.getParameter("opcion");
 		int nroSala = Integer.parseInt(request.getParameter("nroSala"));
 
-		response.sendRedirect("index.jsp");
 			if (opcion.equals("guardar")) {
-				response.sendRedirect("index.jsp");
 				SalaController sCon = new SalaController();
-				if(sCon.GetOne(nroSala)== null) {
+				  
+				  //if(sCon.GetOne(nroSala)== null) {} Falta validar si no esta ese numero de sala ya existe con un if getone
 					
-			// crear sala
 					  sCon.setSala(nroSala);
-					  response.sendRedirect("index.jsp");
+					  response.sendRedirect("index.jsp"); //deberia mostrar un mensaje de que se registro exitoso
 				}		        
 		    
-		 		response.sendRedirect("menu.jsp");
 		 		
-			}
-			
-			
-			
 	/*		
 			
 			else if (opcion.equals("modificar")){
@@ -89,20 +85,6 @@ public class SalaServlet extends HttpServlet {
 				}*/
 			
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
+			
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-		
-		
-		
-		
-		
-		//doGet(request, response);
-	}
-
-}
+}}

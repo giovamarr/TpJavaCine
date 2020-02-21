@@ -95,7 +95,6 @@ public ArrayList<Sala> GetAllSalasenMantenimiento(){
 		{
 				sal.setNroSala(rs.getInt("nroSala"));
 				sal.setEstadoSala(rs.getInt("estadoSala"));
-				sal.setCantbutacas(rs.getInt("cantbutacas"));
 		}
 			
 		} catch (SQLException e) {

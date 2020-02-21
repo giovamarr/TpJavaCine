@@ -1,5 +1,4 @@
 package logic;
-
 import java.util.ArrayList;
 
 import data.DataSala;
@@ -52,20 +51,16 @@ public Sala setSala (int nroSala) {
 	
 	DataSala dsala = new DataSala();
 	
-
 	dsala.IngresarSala(s);
 	
 }
-
 public void nuevaSala (int nroSala,int cantbutacas) {
 	
 	DataSala dsala = new DataSala();
 	Sala sala = new Sala();
-
     
 	sala.setNroSala(nroSala);
 	sala.setEstadoSala(1);
-
 	dsala.IngresarSala(sala);
 	
 	

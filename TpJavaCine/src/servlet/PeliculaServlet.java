@@ -6,12 +6,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-
 import entities.Pelicula;
 import logic.PeliculaController;
-
-
 /**
  * Servlet implementation class PeliculaServlet
  */
@@ -32,8 +28,7 @@ public class PeliculaServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -41,6 +36,8 @@ public class PeliculaServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doGet(request, response);
+	
 
 		
 		String opcion = request.getParameter("opcion");
@@ -49,58 +46,12 @@ public class PeliculaServlet extends HttpServlet {
 			if (opcion.equals("Guardar")) {
 		Pelicula peli=new Pelicula();
 		peli.setCodPelicula(nropeli);
-		peli.setDescPelicula(request.getParameter("descpeli"));
-		peli.setNombrePelicula(request.getParameter("nombrepeli"));
+		peli.setDescPelicula(request.getParameter("descripcionPelicula"));
+		peli.setNombrePelicula(request.getParameter("nombrePelicula"));
 		
 		PeliculaController sCon = new PeliculaController();
-				
-				if(sCon.GetOne(nropeli)== null) {
-		        
-		        sCon.AgregarPeli(peli);
-				}		        
-		    
-		 		response.sendRedirect("menu.jsp");
-		 		
-			}
-			
-			
-			
-			
-			
-			else if (opcion.equals("modificar")){
-				
-				PeliculaController sCon = new PeliculaController();
-		        
-				Pelicula peli = sCon.GetOne(nropeli);
-		    
-		 		if(peli!=null)
-			{
-		 			response.sendRedirect("datosPelicula.jsp");
-		 			
-		 			peli.setDescPelicula(request.getParameter("descpeli"));
-		 			peli.setNombrePelicula(request.getParameter("nombrepeli"));;	
-		 	
-		 			sCon.Update(peli);;		
-			}	
-				
-			} 
-			
-			
-			
-			
-			
-				else if (opcion.equals("borrar")) //poner sala en mantenimiento
-					{
-					PeliculaController sCon = new PeliculaController();
-			        
-					Pelicula peli = sCon.GetOne(nropeli);
-			        if(peli!=null)
-			        {
-			        	sCon.Delete(peli);
-			}
-			        
-				}
-	}
+		 sCon.AgregarPeli(peli);
+	
 	}
 
-
+}}
