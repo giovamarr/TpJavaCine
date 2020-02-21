@@ -10,13 +10,13 @@
 
 <form action="../../PeliculaServlet" method ="post">
    <input type="hidden" name="opcion" value="guardar">
-     <h1>Nueva Pelicula</h1>
-     <label>Nro de Pelicula</label>
-       <input type="number" name="nropeli" ><br><br>
+     <h1>Nueva Pelicula</h1>	
+     <label>Codigo de Pelicula</label>
+       <input type="number" name="codPelicula" ><br><br>
         <label>Nombre de la Pelicula</label>
-       <input type="text" name="nombrepeli" ><br><br>
+       <input type="text" name="nombrePelicula" ><br><br>
     <label>Descripcion</label>
-   <input type="text" name="descpeli"/><br><br>
+   <input type="text" name="descripcionPelicula"/><br><br>
        <input type="submit" value="Guardar">
         <br><br><br>
 <a href="../pelicula/menuPelicula.jsp">Volver</a>

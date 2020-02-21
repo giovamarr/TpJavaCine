@@ -6,7 +6,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+ 
+import entities.Sala;
 import logic.SalaController;
 /**
  * Servlet implementation class SalaServlet
@@ -37,8 +38,9 @@ public class SalaServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		String opcion = request.getParameter("opcion");
 		int nroSala = Integer.parseInt(request.getParameter("nroSala"));
+		String opcion = request.getParameter("opcion");
+	
 
 			if (opcion.equals("guardar")) {
 				SalaController sCon = new SalaController();
@@ -49,9 +51,7 @@ public class SalaServlet extends HttpServlet {
 					  response.sendRedirect("index.jsp"); //deberia mostrar un mensaje de que se registro exitoso
 				}		        
 		    
-		 		
-	/*		
-			
+		 	
 			else if (opcion.equals("modificar")){
 				
 				SalaController sCon = new SalaController();
@@ -60,15 +60,15 @@ public class SalaServlet extends HttpServlet {
 		    
 		 		if(sala!=null)
 			{
-		 			response.sendRedirect("datosSala.jsp");
+		 			response.sendRedirect("views/sala/datosSala.jsp");
 		 			
-		 			sala.setEstadoSala(Integer.parseInt(request.getParameter("estadoSala")));
-		 	sCon.Insert(sala);		
+		 			//sala.setEstadoSala(Integer.parseInt(request.getParameter("estadoSala")));
+		 	//sCon.Insert(sala);		
 			}	
 				
 			} 
 			
-			
+			/*
 			
 			
 			

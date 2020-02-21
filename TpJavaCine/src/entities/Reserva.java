@@ -1,6 +1,6 @@
 package entities;
 
-import java.util.*;
+//import java.util.*;
 public class Reserva {
 	
 	private int idReserva;

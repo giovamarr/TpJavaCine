@@ -3,7 +3,7 @@ package entities;
 public class Pelicula {
     private int codPelicula;
    private String nombrePelicula;
-   private String descPelicula;
+   private String descripcionPelicula;
 
 public int getCodPelicula() {
 	return codPelicula;
@@ -17,10 +17,10 @@ public String getNombrePelicula() {
 public void setNombrePelicula(String nombrePelicula) {
 	this.nombrePelicula = nombrePelicula;
 }
-public String getDescPelicula() {
-	return descPelicula;
+public String getDescripcionPelicula() {
+	return descripcionPelicula;
 }
-public void setDescPelicula(String descPelicula) {
-	this.descPelicula = descPelicula;
+public void setDescripcionPelicula(String descPelicula) {
+	this.descripcionPelicula = descPelicula;
 }
 }

@@ -6,7 +6,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import entities.Pelicula;
 import logic.PeliculaController;
 /**
  * Servlet implementation class PeliculaServlet
@@ -38,19 +37,17 @@ public class PeliculaServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	
-
+		 String opcion = request.getParameter("opcion");
+		int codPelicula = Integer.parseInt(request.getParameter("codPelicula"));
+		String descripcionPelicula = request.getParameter("descripcionPelicula");
+		String nombrePelicula = request.getParameter("nombrePelicula");
 		
-		String opcion = request.getParameter("opcion");
-		int nropeli = Integer.parseInt(request.getParameter("nropeli"));
-
-			if (opcion.equals("Guardar")) {
-		Pelicula peli=new Pelicula();
-		peli.setCodPelicula(nropeli);
-		peli.setDescPelicula(request.getParameter("descripcionPelicula"));
-		peli.setNombrePelicula(request.getParameter("nombrePelicula"));
 		
-		PeliculaController sCon = new PeliculaController();
-		 sCon.AgregarPeli(peli);
+			if (opcion.equals("guardar")) {
+		
+		PeliculaController peliCon = new PeliculaController();
+		 peliCon.setPelicula(codPelicula, descripcionPelicula, nombrePelicula);
+		 response.sendRedirect("index.jsp");
 	
 	}
 

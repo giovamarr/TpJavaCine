@@ -26,7 +26,7 @@ public class DataPelicula extends Conexion{
 		{			
 					Pelicula a = new Pelicula();
 					a.setCodPelicula(rs.getInt("codPelicula"));
-					a.setDescPelicula(rs.getString("descripcionPelicula"));
+					a.setDescripcionPelicula(rs.getString("descripcionPelicula"));
 					a.setNombrePelicula(rs.getString("nombrePelicula"));
 					peliculas.add(a);
 										
@@ -49,35 +49,7 @@ public class DataPelicula extends Conexion{
 	
 	
 
-	public boolean AgregarPeli(Pelicula peli) {
 	
-		PreparedStatement pst = null;
-		try {
-			String consulta = "insert into peliculas (codPelicula, descripcionPelicula, nombrePelicula)values (?,?,?)";
-			pst =Conexion.getInstancia().getConn().prepareStatement(consulta);
-			pst.setInt(1, peli.getCodPelicula());
-			pst.setString(2, peli.getDescPelicula());
-			pst.setString(3, peli.getNombrePelicula());
-			
-			if(pst.executeUpdate() ==1) {
-				return true;
-			}
-		}
-		catch (Exception ex){
-			System.out.println("error"+ ex);
-		}finally {
-			try {
-				if(Conexion.getInstancia().getConn()!= null)Conexion.getInstancia().getConn().close();
-				if(pst!= null)pst.close();
-			}
-			
-			catch(Exception e) {
-			System.out.println("error"+ e);
-		}}
-		
-	return false;
-	}
-		
 	
 	
 	public Pelicula GetOne(int id) {
@@ -92,7 +64,7 @@ public class DataPelicula extends Conexion{
 			if(rs.next()) 
 		{
 				peli.setCodPelicula(rs.getInt("codPelicula"));
-				peli.setDescPelicula(rs.getString("descripcionPelicula"));
+				peli.setDescripcionPelicula(rs.getString("descripcionPelicula"));
 				peli.setNombrePelicula(rs.getString("nombrePelicula"));							
 		}
 			
@@ -126,7 +98,7 @@ public class DataPelicula extends Conexion{
 			if(rs.next()) 
 		{
 				peli.setCodPelicula(rs.getInt("codPelicula"));
-				peli.setDescPelicula(rs.getString("descripcionPelicula"));
+				peli.setDescripcionPelicula(rs.getString("descripcionPelicula"));
 				peli.setNombrePelicula(rs.getString("nombrePelicula"));							
 		}
 			
@@ -145,6 +117,37 @@ public class DataPelicula extends Conexion{
 		
 		return peli;
 		
+	}
+	public boolean IngresarPelicula (int codPelicula,String descripcionPelicula, String nombrePelicula) {
+		
+		PreparedStatement pst = null;
+		
+		try 
+		{
+			String consulta = "insert into peliculas (codPelicula,descripcionPelicula,nombrePelicula) VALUES (?,?,?) ";
+			pst = Conexion.getInstancia().getConn().prepareStatement(consulta);
+			pst.setInt(1, codPelicula);
+			pst.setString(2, descripcionPelicula);
+			pst.setString(3, nombrePelicula);
+		    pst.executeUpdate();
+		    
+		    if(pst.executeUpdate() ==1) {
+				return true;
+				}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(Conexion.getInstancia().getConn()!= null) Conexion.getInstancia().getConn().close();
+				if(pst!=null)pst.close();
+				}
+				catch(Exception e) {
+					System.err.println("Error "+e);
+				}
+		}
+		
+		return false;
 	}
 	
 	public void Delete(Pelicula peli) {
@@ -183,7 +186,7 @@ public void Update(Pelicula peli) {
 		try {
 			String consulta = "Update peliculas set descripcionPelicula=?,nombrePelicula=? where codPelicula==?";
 			pst = getConn().prepareStatement(consulta);
-			pst.setString(1,peli.getDescPelicula());
+			pst.setString(1,peli.getDescripcionPelicula());
 			pst.setString(2,peli.getNombrePelicula());
 			pst.setInt(3, peli.getCodPelicula());
 			pst.executeUpdate();
