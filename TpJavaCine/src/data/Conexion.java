@@ -6,9 +6,16 @@ public class Conexion {
 	private static Conexion instancia;
 	
 	
-
+/*
 	public String driver="com.mysql.jdbc.Driver";
 	private String host="localhost";
+	private String port="3306";
+	private String user="root";
+	private String password="lalo123";
+	private String db="cine";*/
+	
+	public String driver="com.mysql.jdbc.Driver";
+	private String host="127.0.0.1";
 	private String port="3306";
 	private String user="root";
 	private String password="lalo123";
@@ -37,6 +44,7 @@ public class Conexion {
 		try {
 			if(conn==null || conn.isClosed()) {
 				conn=DriverManager.getConnection("jdbc:mysql://"+host+":"+port+"/"+db, user, password);
+				
 				conectados=0;
 			}
 		} catch (SQLException e) {

@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -60,6 +62,7 @@ public class SalaServlet extends HttpServlet {
 		    
 		 		if(sala!=null)
 			{
+		 	
 		 			RequestDispatcher rd= request.getRequestDispatcher("views/sala/datosSala.jsp");
 		 			rd.forward(request, response);
 		 			//response.sendRedirect("views/sala/datosSala.jsp");
