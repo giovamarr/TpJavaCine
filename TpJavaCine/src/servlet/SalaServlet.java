@@ -60,7 +60,9 @@ public class SalaServlet extends HttpServlet {
 		    
 		 		if(sala!=null)
 			{
-		 			response.sendRedirect("views/sala/datosSala.jsp");
+		 			RequestDispatcher rd= request.getRequestDispatcher("views/sala/datosSala.jsp");
+		 			rd.forward(request, response);
+		 			//response.sendRedirect("views/sala/datosSala.jsp");
 		 			
 		 			//sala.setEstadoSala(Integer.parseInt(request.getParameter("estadoSala")));
 		 	//sCon.Insert(sala);		

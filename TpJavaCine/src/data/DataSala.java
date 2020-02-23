@@ -91,7 +91,7 @@ public ArrayList<Sala> GetAllSalasenMantenimiento(){
 			pst = getConn().prepareStatement(consulta);
 			pst.setInt(1, id);
 			rs=pst.executeQuery();	
-			if(rs.next()) 
+			if(rs!=null && rs.next()) 
 		{
 				sal.setNroSala(rs.getInt("nroSala"));
 				sal.setEstadoSala(rs.getInt("estadoSala"));
