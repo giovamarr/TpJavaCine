@@ -16,6 +16,7 @@
        <input type="number" name="nroSala" ><br><br>
        <input type="submit" value="Guardar">
         <br><br><br>
+        
 <a href="../sala/menuSala.jsp">Volver</a>
 </form>
 

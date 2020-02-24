@@ -29,19 +29,13 @@ public class ButacaServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		String opcion = request.getParameter("opcion");
 
-			if (opcion.equals("guardar")) {
-	}
-			
-			else if (opcion.equals("modificar")){
-			} 
-			
-				else if (opcion.equals("borrar")) {
-			}
+
+
+}
 	
 	
-	}
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -49,6 +43,20 @@ public class ButacaServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+		
+		String opcion = request.getParameter("opcion");
+switch(opcion) {
+case("guardar"):
+	
+	break;
+case("modificar"):
+	
+	break;
+case("borrar"):
+	
+	break;
 	}
 
+}
+	
 }

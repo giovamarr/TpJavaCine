@@ -1,4 +1,5 @@
 package data;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -6,6 +7,7 @@ import java.util.ArrayList;
 //import  java.sql.Date;
 
 import entities.Funcion;
+import entities.Pelicula;
 public class DataFuncion extends Conexion{
 
 public ArrayList<Funcion> GetAll(){ 
@@ -46,70 +48,62 @@ public ArrayList<Funcion> GetAll(){
 	}	
 	
 	
-	public Funcion GetOne(int id) {
-		Funcion funcion = new Funcion();
-		String consulta = "select * from funcion where idFuncion=?";		
-		PreparedStatement pst=null;
-		ResultSet rs=null;
-		try {
-			pst = getConn().prepareStatement(consulta);
-			pst.setInt(1, id);
-			rs=pst.executeQuery();	
-			if(rs.next()) 
-		{
 
-				funcion.setIdFuncion(rs.getInt("idFuncion"));
-				funcion.setId_nrosala(rs.getInt("id_nrosala"));
-				funcion.setId_codPelicula(rs.getInt("id_codPelicula"));
-				funcion.setDiaFuncion(rs.getDate("diaFuncion"));
-				funcion.setHoraFuncion(rs.getInt("horaFuncion"));
+public Funcion GetOne(int id) {
+	Funcion sal=null;
+	PreparedStatement stmt=null;
+	ResultSet rs=null;
+	try {
+		stmt=Conexion.getInstancia().getConn().prepareStatement(
+				"select * from funcion where idFuncion=?"
+				);
+		stmt.setInt(1, id);		
+		rs=stmt.executeQuery();
+		if(rs!=null && rs.next()) {
+			sal=new Funcion();
+			sal.setIdFuncion(rs.getInt("idFuncion"));
+			sal.setId_nrosala(rs.getInt("id_nrosala"));
+			sal.setId_codPelicula(rs.getInt("id_codPelicula"));
+			sal.setDiaFuncion(rs.getDate("diaFuncion"));
+			sal.setHoraFuncion(rs.getInt("horaFuncion"));
 		}
-			
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}finally {
+		try {
+			if(rs!=null) {rs.close();}
+			if(stmt!=null) {stmt.close();}
+			Conexion.getInstancia().releaseConn();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	return sal;
+}
+	
+
+	public void Delete(Funcion per) {
+		
+		PreparedStatement stmt=null;
+		try {
+			stmt=Conexion.getInstancia().getConn().prepareStatement(
+					"delete from funcion where idFuncion=?"
+					);
+			stmt.setInt(1, per.getIdFuncion());
+			stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			try {
-				if(getConn()!= null) getConn().close();
-				if(pst!=null)pst.close();
-				if(rs!=null)rs.close();
-				}
-				catch(Exception e) {
-					System.err.println("Error "+e);
-				}
+				if(stmt!=null) {stmt.close();}
+				Conexion.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
-		
-		return funcion;
-		
 	}
-	
 
-	public void Delete(Funcion func) {
-		
-		
-		PreparedStatement pst=null;
-		ResultSet rs=null;
-		try {
-			String consulta = "DELETE FROM funcion where idFuncion==?";
-			pst =Conexion.getInstancia().getConn().prepareStatement(consulta);	
-			pst.setInt(1, func.getIdFuncion());
-			pst.executeUpdate();
-		
-			
-		}catch(Exception e) {
-			System.err.println("Error "+e);
-		}finally {
-			try {
-				if(getConn()!= null) getConn().close();
-				if(pst!=null)pst.close();
-				if(rs!=null)rs.close();
-				}
-				catch(Exception e) {
-					System.err.println("Error "+e);
-				}
-		}
-	}
-	
-	
 
 public void Update(Funcion func) {
 	
@@ -143,18 +137,47 @@ public void Update(Funcion func) {
 				}
 		}
 	}
-	
+public void Insert(Funcion func) {
+	PreparedStatement stmt= null;
+	ResultSet keyResultSet=null;
+	try {
+		stmt=Conexion.getInstancia().getConn().
+				prepareStatement("insert into persona(diaFuncion, horaFuncion,id_nrosala,id_codPelicula,idFuncion) values(?,?,?,?,?)");
+		//stmt.setDate(1, func.getDiaFuncion());
+		stmt.setDate(1, func.getDiaFuncion());
+		stmt.setInt(2,func.getHoraFuncion());			
+		stmt.setInt(3,func.getId_nrosala());
+		stmt.setInt(4,func.getId_codPelicula());
+		stmt.setInt(5,func.getIdFuncion());
+		stmt.executeUpdate();
+       		
+	}  catch (SQLException e) {
+        e.printStackTrace();
+	} finally {
+        try {            
+            if(stmt!=null)stmt.close();
+            Conexion.getInstancia().releaseConn();
+        } catch (SQLException e) {
+        	e.printStackTrace();
+        }
+	}
+}
+        
+	}
 
+
+/*
 public void Insert(Funcion func) {
 
 	PreparedStatement pst = null;
 	try {
-		String consulta = "insert into funcion (diaFuncion, horaFuncion,id_nrosala,id_codPelicula)values (?,?,?,?)";
+		String consulta = "insert into funcion (diaFuncion, horaFuncion,id_nrosala,id_codPelicula,idFuncion)values (?,?,?,?,?)";
 		pst = getConn().prepareStatement(consulta);
 		pst.setDate(1, func.getDiaFuncion());
 		pst.setInt(2,func.getHoraFuncion());			
 		pst.setInt(3,func.getId_nrosala());
 		pst.setInt(4,func.getId_codPelicula());
+		pst.setInt(4,func.getIdFuncion());
 		pst.executeUpdate();
 		
 	}
@@ -170,6 +193,7 @@ public void Insert(Funcion func) {
 		System.out.println("error"+ e);
 	}}
 	
-}
+}*/
 
-}
+	
+

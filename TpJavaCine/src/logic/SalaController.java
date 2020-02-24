@@ -20,8 +20,10 @@ public class SalaController {
 
 
 	public Sala GetOne(int id) {
-		DataSala ds=new DataSala();
-		return ds.GetOne(id);
+		DataSala dsala = new DataSala();
+		Sala sala = new Sala();
+		sala=dsala.GetOne(id);
+		return sala;
 	}
 
 public void SalaenMantenimiento(Sala sal) {
@@ -46,6 +48,19 @@ public Sala setSala (int nroSala) {
 	dsala.IngresarSala(nroSala);
 	
 	return sala;
+}
+
+public void Delete(Sala per) {
+DataSala dsala = new DataSala();
+	
+	dsala.Delete(per);
+}
+
+
+public void upd(Sala sal) {
+	DataSala dsala = new DataSala();
+	dsala.upd(sal);
+	
 }
 /*public void Insert (Sala s) {
 	

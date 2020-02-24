@@ -33,6 +33,7 @@ public class PeliculaController {
 	}
 
 	public void Delete(Pelicula peli) {
+		
 		DataPelicula dp=new DataPelicula();
 		dp.Delete(peli);
 	}

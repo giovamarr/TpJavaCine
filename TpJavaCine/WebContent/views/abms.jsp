@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 
- <a href="index.jsp">Cerrar Sesion</a>
+ <a href="../index.jsp">Cerrar Sesion</a>
 <body> 
 
 <h2>ABMS</h2>

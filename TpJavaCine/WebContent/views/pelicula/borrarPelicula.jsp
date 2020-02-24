@@ -11,8 +11,8 @@
 <form action="../../PeliculaServlet" method ="post">
   <input type="hidden" name="opcion" value="borrar">
      <h1>Ingrese el numero de la pelicula que desea borrar:</h1>
-       <input type="number" name="nropeli">
-       <input type="submit" value="Buscar">
+       <input type="number" name="codPelicula">
+       <input type="submit" value="Aceptar">
         <br><br><br>
 <a href="../pelicula/menuPelicula.jsp">Volver</a>
 </form>

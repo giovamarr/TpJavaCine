@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Mantenimiento de Salas</title>
+<title>Borrar Sala</title>
 </head>
 <body>
 
 <form action="../../SalaServlet" method ="post">
   <input type="hidden" name="opcion" value="borrar">
-     <h1>Ingrese el numero de la sala que desea poner en Mantenimiento:</h1>
+     <h1>Ingrese el numero de la sala que desea Borrar:</h1>
        <input type="number" name="nroSala">
        <input type="submit" value="Aceptar">
         <br><br><br>

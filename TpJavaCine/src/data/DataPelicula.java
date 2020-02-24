@@ -8,6 +8,7 @@ import java.util.ArrayList;
 //import entities.Funcion;
 import entities.Pelicula;
 //import entities.Usuario;
+import entities.Sala;
 
 public class DataPelicula extends Conexion{
 	
@@ -50,8 +51,39 @@ public class DataPelicula extends Conexion{
 	
 
 	
+
+public Pelicula GetOne(int id) {
+	Pelicula sal=null;
+	PreparedStatement stmt=null;
+	ResultSet rs=null;
+	try {
+		stmt=Conexion.getInstancia().getConn().prepareStatement(
+				"select * from peliculas where codPelicula=?"
+				);
+		stmt.setInt(1, id);		
+		rs=stmt.executeQuery();
+		if(rs!=null && rs.next()) {
+			sal=new Pelicula();
+			sal.setDescripcionPelicula(rs.getString("descripcionPelicula"));
+			sal.setNombrePelicula(rs.getString("nombrePelicula"));
+			sal.setCodPelicula(rs.getInt("codPelicula"));
+		}
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}finally {
+		try {
+			if(rs!=null) {rs.close();}
+			if(stmt!=null) {stmt.close();}
+			Conexion.getInstancia().releaseConn();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	
-	
+	return sal;
+}
+
+	/*
 	public Pelicula GetOne(int id) {
 		Pelicula peli = new Pelicula();
 		String consulta = "select * from peliculas where codPelicula=?";		
@@ -84,7 +116,7 @@ public class DataPelicula extends Conexion{
 		return peli;
 		
 	}
-	
+	*/
 
 	public Pelicula GetOne(String nombre) {
 		Pelicula peli = new Pelicula();
@@ -150,7 +182,7 @@ public class DataPelicula extends Conexion{
 		return false;
 	}
 	
-	public void Delete(Pelicula peli) {
+	/*public void Delete(Pelicula peli) {
 		
 		
 		PreparedStatement pst=null;
@@ -173,6 +205,26 @@ public class DataPelicula extends Conexion{
 				catch(Exception e) {
 					System.err.println("Error "+e);
 				}
+		}
+	}*/
+	public void Delete(Pelicula per) {
+	
+		PreparedStatement stmt=null;
+		try {
+			stmt=Conexion.getInstancia().getConn().prepareStatement(
+					"delete from peliculas where codPelicula=?"
+					);
+			stmt.setInt(1, per.getCodPelicula());
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(stmt!=null) {stmt.close();}
+				Conexion.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
