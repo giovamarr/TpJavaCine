@@ -12,7 +12,7 @@
    
     <label>Nro de Sala</label>
     <input type="text" name="nrosala"/><br><br>
-    <label>Estado de la Butaca/*0-Vacia  1-Ocupada*/</label>
+    <label>Estado de la Butaca/*0-Vacia  1-Ocupada 2-Mantenimiento*/</label>
     <input type="text" name="estado"/><br><br>
     <input type="submit" value="Aceptar"/>
       <br><br><br>

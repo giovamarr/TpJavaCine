@@ -33,6 +33,7 @@ public class InicioSesion extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		
@@ -61,7 +62,7 @@ public class InicioSesion extends HttpServlet {
     	 else 
     	 { 
     	
- 		 request.getSession().setAttribute("errorLogin", "Usuario y/o contraseña incorrecta");	
+ 		 request.getSession().setAttribute("errorLogin", "Usuario y/o contraseï¿½a incorrecta");	
  		
  		 response.sendRedirect("index.jsp");	
     	 }	
@@ -74,6 +75,7 @@ public class InicioSesion extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	
+
 	
 	}
 

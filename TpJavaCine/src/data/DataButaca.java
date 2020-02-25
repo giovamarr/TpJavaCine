@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import entities.Butaca;
+import entities.Pelicula;
 
 public class DataButaca extends Conexion{
 	
@@ -18,6 +19,33 @@ public class DataButaca extends Conexion{
 			/*0-Vacia  1-Ocupada*/
 			pst.setInt(2, nrobut );
 			pst.setInt(1,1);	
+			pst.setInt(3,sala);	
+			pst.executeUpdate();
+			
+		}
+		catch (Exception ex){
+			System.out.println("error"+ ex);
+		}finally {
+			try {
+				if(Conexion.getInstancia().getConn()!= null)Conexion.getInstancia().getConn().close();
+				if(pst!= null)pst.close();
+			}
+			
+			catch(Exception e) {
+			System.out.println("error"+ e);
+		}}
+		
+	
+	}
+	public void ActualizaEstado(int nrobut, int sala, int estado) {
+		
+		PreparedStatement pst = null;
+		try {
+			String consulta = "Update butacas set estadoButaca=? where nrobutaca==?  and id_sala=?";
+			pst = getConn().prepareStatement(consulta);
+			/*0-Vacia  1-Ocupada*/
+			pst.setInt(2, nrobut );
+			pst.setInt(1,estado);	
 			pst.setInt(3,sala);	
 			pst.executeUpdate();
 			
@@ -99,7 +127,36 @@ public class DataButaca extends Conexion{
 		
 	}
 	
-	
+	public Butaca GetOne(int nrobut, int sala) {
+		Butaca but=null;
+		PreparedStatement stmt=null;
+		ResultSet rs=null;
+		try {
+			stmt=Conexion.getInstancia().getConn().prepareStatement("SELECT * FROM butacas where nrobutaca==?  and id_sala=?");
+			stmt.setInt(1, nrobut);
+			stmt.setInt(2,sala);	
+			rs = stmt.executeQuery();
+			if(rs!=null && rs.next()) {
+				but = new Butaca();
+				but.setNroButaca(rs.getInt("nrobutaca"));
+				but.setId_sala(rs.getInt("id_sala"));
+				but.setEstadoButaca(rs.getInt("estadoButaca"));
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs!=null) {rs.close();}
+				if(stmt!=null) {stmt.close();}
+				Conexion.getInstancia().releaseConn();
+			} 
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return but;
+	}
 	
 	
 

@@ -10,7 +10,9 @@
 
 <form action="../../ButacaServlet" method ="post">
    <input type="hidden" name="opcion" value="guardar">
-     <h1>Ingrese el numero de la butaca que desea crear:</h1>
+   <h3>Ingrese el numero de sala a la que le desea crear una butaca:</h3>
+   <input type="number" name= "nrosala"><br>
+     <h3>Ingrese el numero de la butaca que desea crear:</h3>
        <input type="number" name="nroButaca" >
        <input type="submit" value="Guardar">
          <br><br><br>

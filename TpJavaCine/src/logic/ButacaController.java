@@ -27,6 +27,14 @@ public class ButacaController {
 		DataButaca DButaca=new DataButaca();
 		DButaca.VaciarButacas();
 	}
+	public Butaca GetOne(int id, int idsala) {
+		DataButaca DButaca=new DataButaca();
+		Butaca but = new Butaca();
+		but = DButaca.GetOne(id, idsala);
+		return but;
+	}
+	
+
 	
 	
 }

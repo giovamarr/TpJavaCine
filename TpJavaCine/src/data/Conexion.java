@@ -20,6 +20,18 @@ public class Conexion {
 	private String user="root";
 	private String password="lalo123";
 	private String db="cine";
+	
+	/*public String driver="com.mysql.jdbc.Driver";
+	private String host="127.0.0.1";
+	private String port="3306";
+	private String user="root";
+	private String db="cine";
+	private String password="root";*/
+
+	
+	
+	
+	
 	private int conectados=0;
 	private Connection conn=null;
 	
