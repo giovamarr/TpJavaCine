@@ -1,6 +1,7 @@
 package logic;
 import java.util.ArrayList;
 
+import data.DataButaca;
 import data.DataSala;
 //import data.DataUsuario;
 import entities.Sala;
@@ -39,13 +40,19 @@ public Sala setSala (int nroSala) {
 	
 	DataSala dsala = new DataSala();
 	Sala sala = new Sala();
-
+	
     
 	sala.setNroSala(nroSala);
 	sala.setEstadoSala(1);
     
-
 	dsala.IngresarSala(nroSala);
+	
+	DataButaca dbutaca = new DataButaca();
+	int i;
+	for (i=0;i==10; i++) {
+		dbutaca.AltaButacas(i, sala.getNroSala());
+	}
+	
 	
 	return sala;
 }
