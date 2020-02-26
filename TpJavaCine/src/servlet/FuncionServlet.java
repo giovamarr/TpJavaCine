@@ -72,8 +72,8 @@ public class FuncionServlet extends HttpServlet {
 						
 		        if((peli!=null) && (sala!=null) && (sCon.GetOne(nrofuncion)== null))
 		        {		
-		        //func.setDiaFuncion(request.getParameter("diafuncion"));
-	 			//func.setHoraFuncion(request.getParameter("horafuncion"));	 			
+		        func.setDiaFuncion(request.getParameter("diafuncion"));
+	 		    func.setHoraFuncion(Integer.parseInt(request.getParameter("horafuncion")));	 			
 	 			func.setId_codPelicula(peli.getCodPelicula());
 	 			func.setId_nrosala(sala.getNroSala());
 	 			func.setIdFuncion(nrofuncion);	 			
@@ -101,15 +101,17 @@ public class FuncionServlet extends HttpServlet {
 							
 			        if((pelis!=null) && (salas!=null)) {
 		 			
-			        	/*funcion.setDiaFuncion(request.getParameter("diafuncion"));
-		 			funcion.setHoraFuncion(request.getParameter("horafuncion"));*/		 			
+			        	funcion.setDiaFuncion(request.getParameter("diafuncion"));
+			        	funcion.setHoraFuncion(Integer.parseInt(request.getParameter("horafuncion")));			 			
 			        	funcion.setId_codPelicula(pelis.getCodPelicula());
 			        	funcion.setId_nrosala(salas.getNroSala());
 			        	funcion.setIdFuncion(nrofuncion);
 		 			
-		 	
-		 			sCon.Update(funcion);		}
-			}	
+			        	
+		 			sCon.Update(funcion);	
+		 			response(response,"Funcion Modificada","<a href=\"views/funcion/menufuncion.jsp\">Volver</a>");}
+			        response(response,"Pelicula o Sala no Existe","<a href=\"views/funcion/modificarFuncion.jsp\">Volver</a>");
+			}	else {response(response,"Funcion no Existe","<a href=\"views/funcion/modificarFuncion.jsp\">Volver</a>");}
 				
 		 		break;
 		case("borrar"):									

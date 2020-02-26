@@ -26,7 +26,7 @@ public ArrayList<Funcion> GetAll(){
 				funcion.setIdFuncion(rs.getInt("idFuncion"));
 				funcion.setId_nrosala(rs.getInt("id_nrosala"));
 				funcion.setId_codPelicula(rs.getInt("id_codPelicula"));
-				funcion.setDiaFuncion(rs.getDate("diaFuncion"));
+				funcion.setDiaFuncion(rs.getString("diaFuncion"));
 				funcion.setHoraFuncion(rs.getInt("horaFuncion"));
 				funciones.add(funcion);
 										
@@ -64,7 +64,7 @@ public Funcion GetOne(int id) {
 			sal.setIdFuncion(rs.getInt("idFuncion"));
 			sal.setId_nrosala(rs.getInt("id_nrosala"));
 			sal.setId_codPelicula(rs.getInt("id_codPelicula"));
-			sal.setDiaFuncion(rs.getDate("diaFuncion"));
+			sal.setDiaFuncion(rs.getString("diaFuncion"));
 			sal.setHoraFuncion(rs.getInt("horaFuncion"));
 		}
 	} catch (SQLException e) {
@@ -114,7 +114,7 @@ public void Update(Funcion func) {
 			String consulta = "Update funcion set diaFuncion=?,horaFuncion=?,id_nrosala=?,id_codPelicula=? where idFuncion=?";
 
 			pst =Conexion.getInstancia().getConn().prepareStatement(consulta);	
-			pst.setDate(1, func.getDiaFuncion());
+			pst.setString(1, func.getDiaFuncion());
 			pst.setInt(2,func.getHoraFuncion());			
 			pst.setInt(3,func.getId_nrosala());
 			pst.setInt(4,func.getId_codPelicula());
@@ -144,7 +144,7 @@ public void Insert(Funcion func) {
 		stmt=Conexion.getInstancia().getConn().
 				prepareStatement("insert into persona(diaFuncion, horaFuncion,id_nrosala,id_codPelicula,idFuncion) values(?,?,?,?,?)");
 		//stmt.setDate(1, func.getDiaFuncion());
-		stmt.setDate(1, func.getDiaFuncion());
+		stmt.setString(1, func.getDiaFuncion());
 		stmt.setInt(2,func.getHoraFuncion());			
 		stmt.setInt(3,func.getId_nrosala());
 		stmt.setInt(4,func.getId_codPelicula());

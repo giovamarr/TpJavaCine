@@ -22,7 +22,10 @@ public class ButacaController {
 		return b=DButaca.ButacasVacias();	
 		
 	}
-
+	public void upd(Butaca sal) {
+		DataButaca DButaca=new DataButaca();
+		DButaca.upd(sal);;
+	}
 	public void VaciarButacas() {
 		DataButaca DButaca=new DataButaca();
 		DButaca.VaciarButacas();

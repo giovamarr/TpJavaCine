@@ -10,10 +10,14 @@
 
 <form action="../../ButacaServlet" method ="post">
   <input type="hidden" name="opcion" value="modificar">
-     <h3>Ingrese el numero de sala a la que le desea modificar una butaca:</h3>
+     <h3>Datos:</h3>
+     Numero Sala<br><br>
    <input type="number" name= "nrosala"><br>
-     <h3>Ingrese el numero de la butaca que desea editar:</h3>
-       <input type="number" name="nroButaca"><br><br><br>
+     Numero de la butaca <br><br>
+       <input type="number" name="nroButaca"><br><br>
+ Estado <br><br>
+       <input type="number" name="estado">
+       0-Vacia  1-Ocupada<br><br>
        <input type="submit" value="Buscar">
        
          <br><br><br>

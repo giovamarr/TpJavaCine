@@ -20,7 +20,7 @@
    <label>Hora de Funciom</label>
     <input type="number" name="horafuncion"/><br><br>
     <label>Dia de Funcion</label>
-    <input type="date" name="diafuncion"/><br><br>
+    <input type="text" name="diafuncion"/><br><br>
        <input type="submit" value="Buscar">
         <br><br><br>
 <a href="../funcion/menufuncion.jsp">Volver</a>

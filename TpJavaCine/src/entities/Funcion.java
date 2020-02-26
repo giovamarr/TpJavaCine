@@ -7,7 +7,7 @@ public class Funcion {
 	private int	 id_nrosala;
 	private int id_codPelicula;
 private int horaFuncion;    //hay que ver el tipo time que no se la liberia
-private  java.sql.Date diaFuncion;
+private  String diaFuncion;
 
 
 public int getHoraFuncion() {
@@ -16,11 +16,11 @@ public int getHoraFuncion() {
 public void setHoraFuncion(int horaFuncion) {
 	this.horaFuncion = horaFuncion;
 }
-public java.sql.Date getDiaFuncion() {
+public String getDiaFuncion() {
 	return diaFuncion;
 }
-public void setDiaFuncion( java.sql.Date diaFuncion) {
-	this.diaFuncion = diaFuncion;
+public void setDiaFuncion( String a) {
+	this.diaFuncion = a;
 }
 public int getId_nrosala() {
 	return id_nrosala;

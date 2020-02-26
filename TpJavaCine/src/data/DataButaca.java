@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import entities.Butaca;
 import entities.Pelicula;
+import entities.Sala;
 
 public class DataButaca extends Conexion{
 	
@@ -103,7 +104,34 @@ public class DataButaca extends Conexion{
 		return butacas;
 	}
 	
+
+public void upd(Butaca sal) {
+	PreparedStatement stmt= null;
 	
+	try {
+		stmt=Conexion.getInstancia().getConn().
+				prepareStatement(
+					"Update butacas set estadoButaca=?,id_sala=? where nrobutaca=?");
+		
+		stmt.setInt(1, sal.getEstadoButaca());
+		stmt.setInt(2, sal.getId_sala());
+		stmt.setInt(2, sal.getNroButaca());
+		
+		
+		stmt.executeUpdate();        
+
+		
+	}  catch (SQLException e) {
+        e.printStackTrace();
+	} finally {
+        try {            
+            if(stmt!=null)stmt.close();
+            Conexion.getInstancia().releaseConn();
+        } catch (SQLException e) {
+        	e.printStackTrace();
+        }
+	}
+}
 	
 	public void VaciarButacas() {
 		PreparedStatement pst = null;

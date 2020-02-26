@@ -72,7 +72,8 @@ public class ButacaServlet extends HttpServlet {
 		
 		String opcion = request.getParameter("opcion");
 		int nrosala = Integer.parseInt(request.getParameter("nrosala"));
-		int nrobutaca = Integer.parseInt(request.getParameter("nrobutaca"));
+		int nrobutaca = Integer.parseInt(request.getParameter("nroButaca"));
+		int estado = Integer.parseInt(request.getParameter("estado"));
 		ButacaController bc = new ButacaController(); 
 switch(opcion) {
 case("guardar"):
@@ -85,10 +86,10 @@ case("guardar"):
 case("modificar"):
 	Butaca but = bc.GetOne(nrobutaca, nrosala);
 	if (but != null) {
-		
-			RequestDispatcher rd= request.getRequestDispatcher("views/sala/datosButaca.jsp");
-			//rd.forward(request, response);		 		
-			but.setEstadoButaca(Integer.parseInt(request.getParameter("estadoButaca")));
+		but.setEstadoButaca(estado);
+		but.setId_sala(nrosala);
+		but.setNroButaca(nrobutaca);
+		bc.upd(but);
 			 response(response,"Butaca Modificada","<a href=\"views/butaca/menuButaca.jsp\">Volver</a>");
 			}	
 			else {		
