@@ -33,7 +33,12 @@ public class ButacaController {
 		but = DButaca.GetOne(id, idsala);
 		return but;
 	}
-	
+	public void Insert(int id, int idsala) {
+		DataButaca DButaca=new DataButaca();
+		DButaca.AltaButacas(id, idsala);
+		}
+		
+	}
 
 	
 	

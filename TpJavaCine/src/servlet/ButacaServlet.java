@@ -76,14 +76,19 @@ public class ButacaServlet extends HttpServlet {
 		ButacaController bc = new ButacaController(); 
 switch(opcion) {
 case("guardar"):
+	if(bc.GetOne(nrobutaca, nrosala)==null) {
+		bc.Insert(nrobutaca, nrosala);
+	}
+	
 	
 	break;
 case("modificar"):
 	Butaca but = bc.GetOne(nrobutaca, nrosala);
 	if (but != null) {
+		
 			RequestDispatcher rd= request.getRequestDispatcher("views/sala/datosButaca.jsp");
-			rd.forward(request, response);		 		
-			//but.setEstadoButaca(Integer.parseInt(request.getParameter("estadoButaca")));
+			//rd.forward(request, response);		 		
+			but.setEstadoButaca(Integer.parseInt(request.getParameter("estadoButaca")));
 			 response(response,"Butaca Modificada","<a href=\"views/butaca/menuButaca.jsp\">Volver</a>");
 			}	
 			else {		

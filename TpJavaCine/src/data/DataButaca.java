@@ -157,7 +157,41 @@ public class DataButaca extends Conexion{
 		}
 		return but;
 	}
-	
-	
+	//Alta (de a una) de las butacas de una sala nueva (depsues lo manejamos con un for)
+	public boolean AltaButacas(int id, int idsala) {
+		PreparedStatement pst = null;
+			
+		try {
+			String consulta = "insert into butacas (nrobutaca, estadoButaca, id_sala) VALUES (?,?,?)";
+			pst = Conexion.getInstancia().getConn().prepareStatement(consulta);
+			pst.setInt(1, id);
+			pst.setInt(2, 0);
+			pst.setInt(3, idsala);
+		    pst.executeUpdate();
+			
+		    if(pst.executeUpdate() ==1) {
+				return true;
+				}
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				if(Conexion.getInstancia().getConn()!= null) Conexion.getInstancia().getConn().close();
+				if(pst!=null)pst.close();
+				}
+				catch(Exception e) {
+					System.err.println("Error "+e);
+				}
+		}
+		
+		return false;		
+	}	
 
+	
+	
+	
+	
+	
 }
