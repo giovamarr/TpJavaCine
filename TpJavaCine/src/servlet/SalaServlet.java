@@ -103,7 +103,7 @@ public class SalaServlet extends HttpServlet {
 		 			{		 	
 		 			RequestDispatcher rd= request.getRequestDispatcher("views/sala/datosSala.jsp");
 		 			rd.forward(request, response);		 		
-		 		//	sala.setEstadoSala(request.getParameter("estadoSala"));		 			
+		 		//	sala.setEstadoSala(Integer.parseInt(request.getParameter("estadoSala")));		 			
 		 			 response(response,"Sala Modificada","<a href=\"views/sala/menuSala.jsp\">Volver</a>");
 				}	else {		
 				 response(response,"Sala No Existe","<a href=\"views/sala/modificarSala.jsp\">Volver</a>");
