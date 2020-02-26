@@ -8,11 +8,17 @@
 </head>
 <body>
 
-<form action="PeliculaServlet" method ="post">
+<form action="../../PeliculaServlet" method ="post">
   <input type="hidden" name="opcion" value="modificar">
-     <h1>Ingrese el numero de la Pelicula que desea editar:</h1>
-       <input type="number" name="nropelicula">
-       <input type="submit" value="Buscar">
+     <h1>Datos:</h1>
+      <label>Codigo</label>
+       <input type="number" name="codPelicula"><br><br>
+       <label>Nombre</label>
+    <input type="text" name="nombrePelicula"/><br><br>
+    <label>Descripcion</label>
+    <input type="text" name="descripcionPelicula"/><br><br>
+    <input type="submit" name="button" value="Aceptar">
+       
         <br><br><br>
 <a href="../pelicula/menuPelicula.jsp">Volver</a>
  

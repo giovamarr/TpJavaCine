@@ -94,18 +94,15 @@ public class FuncionServlet extends HttpServlet {
 				Funcion funcion = sCon.GetOne(nrofuncion);
 		    
 		 		if(funcion!=null)
-			{
-		 			response.sendRedirect("datosFuncion.jsp");		
-			        
+			{			        
 					Pelicula pelis = ConPeli.GetOne(Integer.parseInt(request.getParameter("codpeli")));							
 					
 			        Sala salas = ConSala.GetOne(Integer.parseInt(request.getParameter("nrosala")));							
 							
 			        if((pelis!=null) && (salas!=null)) {
 		 			
-			        	/*func.setDiaFuncion(request.getParameter("diafuncion"));
-		 			func.setHoraFuncion(request.getParameter("horafuncion"));*/
-		 			
+			        	/*funcion.setDiaFuncion(request.getParameter("diafuncion"));
+		 			funcion.setHoraFuncion(request.getParameter("horafuncion"));*/		 			
 			        	funcion.setId_codPelicula(pelis.getCodPelicula());
 			        	funcion.setId_nrosala(salas.getNroSala());
 			        	funcion.setIdFuncion(nrofuncion);

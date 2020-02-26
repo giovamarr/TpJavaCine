@@ -79,6 +79,19 @@ public class PeliculaServlet extends HttpServlet {
 		 break;
 	
 		case("modificar"):
+			Pelicula p=new Pelicula();
+		if(peliCon.GetOne(codPelicula)!= null )
+		{	
+		
+		p.setCodPelicula(codPelicula);	
+		p.setDescripcionPelicula(descripcionPelicula);
+		p.setNombrePelicula(nombrePelicula);
+		peliCon.Update(p);
+		response(response,"Pelicula Editada Correctamente","<a href=\"views/pelicula/menuPelicula.jsp\">Volver</a>");
+		
+		
+		}else {response(response,"Pelicula no existe","<a href=\"views/pelicula/modificarPelicula.jsp\">Volver</a>");}
+		
 			
 			
 		break;

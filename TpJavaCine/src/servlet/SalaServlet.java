@@ -71,9 +71,11 @@ public class SalaServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		
+		int estado = Integer.parseInt(request.getParameter("estado"));
 		String opcion = request.getParameter("opcion");
 		PrintWriter out =response.getWriter();
 		SalaController sCon = new SalaController();
+		
 		
 		int nroSala = Integer.parseInt(request.getParameter("nroSala"));
 		switch(opcion) {
@@ -97,13 +99,12 @@ public class SalaServlet extends HttpServlet {
 				  break;
 		case("modificar"):
 			
-		        Sala sala = sCon.GetOne(nroSala);
+		        Sala sala = sCon.GetOne(nroSala);		
 		    
 		 		if(sala!=null)
-		 			{		 	
-		 			RequestDispatcher rd= request.getRequestDispatcher("views/sala/datosSala.jsp");
-		 			rd.forward(request, response);		 		
-		 		//	sala.setEstadoSala(Integer.parseInt(request.getParameter("estadoSala")));		 			
+		 			{	sala.setEstadoSala(estado);	 	
+		 			sCon.upd(sala);
+		 			 			
 		 			 response(response,"Sala Modificada","<a href=\"views/sala/menuSala.jsp\">Volver</a>");
 				}	else {		
 				 response(response,"Sala No Existe","<a href=\"views/sala/modificarSala.jsp\">Volver</a>");

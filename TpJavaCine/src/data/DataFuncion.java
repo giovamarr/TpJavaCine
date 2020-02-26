@@ -111,7 +111,7 @@ public void Update(Funcion func) {
 		PreparedStatement pst=null;
 		ResultSet rs=null;
 		try {
-			String consulta = "Update funcion set diaFuncion=?,horaFuncion=?,id_nrosala=?,id_codPelicula=? where idFuncion==?";
+			String consulta = "Update funcion set diaFuncion=?,horaFuncion=?,id_nrosala=?,id_codPelicula=? where idFuncion=?";
 
 			pst =Conexion.getInstancia().getConn().prepareStatement(consulta);	
 			pst.setDate(1, func.getDiaFuncion());

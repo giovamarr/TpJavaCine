@@ -10,9 +10,13 @@
 
 <form action="../../SalaServlet" method ="post">
   <input type="hidden" name="opcion" value="modificar">
-     <h1>Ingrese el numero de la sala que desea editar:</h1>
-       <input type="number" name="nroSala">
-       <input type="submit" value="Buscar">
+     <h1>Datos:</h1>
+     Numero de Sala<br><br>
+       <input type="number" name="nroSala"><br><br>
+       Estado<br><br>
+       <input type="number" name="estado">(0-En Mantenimiento  1-Disponible)
+       <br><br>
+       <input type="submit" value="Aceptar">
 </form>
  <br><br><br>
 <a href="../sala/menuSala.jsp">Volver</a>

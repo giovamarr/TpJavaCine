@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>Datos</h1>
- <form><br>
+ <form action="../../ModPelicula" method ="post"><br>
    
     <label>Nombre</label>
     <input type="text" name="nombrepeli"/><br><br>

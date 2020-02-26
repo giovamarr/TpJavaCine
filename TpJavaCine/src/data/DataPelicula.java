@@ -227,36 +227,28 @@ public Pelicula GetOne(int id) {
 			}
 		}
 	}
-	
-public void Update(Pelicula peli) {
-		
-		/*peli.setCodPelicula(rs.getInt("codPelicula"));
-				peli.setDescPelicula(rs.getString("descPelicula"));
-				peli.setNombrePelicula(rs.getString("nombrePelicula"));*/
-		PreparedStatement pst=null;
-		ResultSet rs=null;
+	public void Update(Pelicula peli) {
+		PreparedStatement stmt= null;
 		try {
-			String consulta = "Update peliculas set descripcionPelicula=?,nombrePelicula=? where codPelicula==?";
-			pst = getConn().prepareStatement(consulta);
-			pst.setString(1,peli.getDescripcionPelicula());
-			pst.setString(2,peli.getNombrePelicula());
-			pst.setInt(3, peli.getCodPelicula());
-			pst.executeUpdate();
-		
-			
-		}catch(Exception e) {
-			System.err.println("Error "+e);
-		}finally {
-			try {
-				if(getConn()!= null) getConn().close();
-				if(pst!=null)pst.close();
-				if(rs!=null)rs.close();
-				}
-				catch(Exception e) {
-					System.err.println("Error "+e);
-				}
+			stmt=Conexion.getInstancia().getConn().
+					prepareStatement(
+							"update peliculas set descripcionPelicula=?,nombrePelicula=? where codPelicula=?");
+			stmt.setString(1, peli.getDescripcionPelicula());
+			stmt.setString(2, peli.getNombrePelicula());
+			stmt.setInt(3, peli.getCodPelicula());
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if(stmt!=null)stmt.close();
+                Conexion.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
 		}
 	}
+	
 
 	
 	
