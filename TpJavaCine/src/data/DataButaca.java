@@ -15,7 +15,7 @@ public class DataButaca extends Conexion{
 		
 		PreparedStatement pst = null;
 		try {
-			String consulta = "Update butacas set estadoButaca=? where nrobutaca==?  and id_sala=?";
+			String consulta = "Update butacas set estadoButaca=? where nrobutaca=?  and id_sala=?";
 			pst = getConn().prepareStatement(consulta);
 			/*0-Vacia  1-Ocupada*/
 			pst.setInt(2, nrobut );
@@ -186,36 +186,32 @@ public void upd(Butaca sal) {
 		return but;
 	}
 	//Alta (de a una) de las butacas de una sala nueva (depsues lo manejamos con un for)
-	public boolean AltaButacas(int id, int idsala) {
+	public void AltaButacas(int id, int idsala) {
 		PreparedStatement pst = null;
 			
-		try {
-			String consulta = "insert into butacas (nrobutaca, estadoButaca, id_sala) VALUES (?,?,?)";
-			pst = Conexion.getInstancia().getConn().prepareStatement(consulta);
+		try {			
+			pst = Conexion.getInstancia().getConn().prepareStatement("insert into butacas (nrobutaca, estadoButaca, id_sala) VALUES (?,?,?)");
 			pst.setInt(1, id);
 			pst.setInt(2, 0);
 			pst.setInt(3, idsala);
 		    pst.executeUpdate();
 			
-		    if(pst.executeUpdate() ==1) {
-				return true;
-				}
+		   
 		} 
 		catch (SQLException e) {
 			e.printStackTrace();
 		}
 		finally {
 			try {
-				if(Conexion.getInstancia().getConn()!= null) Conexion.getInstancia().getConn().close();
-				if(pst!=null)pst.close();
+		          
+	            if(pst!=null)pst.close();
+	            Conexion.getInstancia().releaseConn();
+	        } catch (SQLException e) {
+	        	e.printStackTrace();
 				}
-				catch(Exception e) {
-					System.err.println("Error "+e);
-				}
-		}
-		
-		return false;		
+		}	
 	}	
+
 
 	
 	

@@ -14,7 +14,7 @@
      
       <label>Ingrese el numero de la Sala a crear:</label>
        <input type="number" name="nroSala" ><br><br>
-       <input type="submit" value="Guardar">
+       <input type="submit" value="Aceotar">
         <br><br><br>
         
 <a href="../sala/menuSala.jsp">Volver</a>

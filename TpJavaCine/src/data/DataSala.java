@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import entities.Sala;
 //import entities.Usuario;
 
+
 //import entities.Sala;
 public class DataSala extends Conexion{
 
@@ -267,7 +268,6 @@ public void Delete(Sala per) {
 		}
 	}
 }
-
 public boolean IngresarSala (int nroSala) {
 	
 	PreparedStatement pst = null;

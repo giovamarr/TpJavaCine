@@ -70,25 +70,19 @@ public class SalaServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		
-		int estado = Integer.parseInt(request.getParameter("estado"));
+				
 		String opcion = request.getParameter("opcion");
-		PrintWriter out =response.getWriter();
-		SalaController sCon = new SalaController();
-		
-		
+		//PrintWriter out =response.getWriter();
+		SalaController sCon = new SalaController();			
 		int nroSala = Integer.parseInt(request.getParameter("nroSala"));
 		switch(opcion) {
 		
 		case("guardar"):	
 				  
+			
 				  if(sCon.GetOne(nroSala)== null) {
 					
-					  sCon.setSala(nroSala);
-					//  RequestDispatcher rd= request.getRequestDispatcher("views/sala/menuSala.jsp");	//con esto funciona el msg pero rompe todo					 
-					  //rd.include(request, response);		 			 
-			 			//out.println("<script type=\"text/javascript\"> var msg = \"Sala cargada Correctamente\"; alert(msg); </script>"); 
-			 		//response.sendRedirect("views/sala/menuSala.jsp");	
+					  sCon.setSala(nroSala);				
 					  
 					  response(response,"Sala Cargada Correctamente","<a href=\"views/sala/menuSala.jsp\">Volver</a>");
 				  } else {
@@ -102,7 +96,7 @@ public class SalaServlet extends HttpServlet {
 		        Sala sala = sCon.GetOne(nroSala);		
 		    
 		 		if(sala!=null)
-		 			{	sala.setEstadoSala(estado);	 	
+		 			{	sala.setEstadoSala(Integer.parseInt(request.getParameter("estado")));	 	
 		 			sCon.upd(sala);
 		 			 			
 		 			 response(response,"Sala Modificada","<a href=\"views/sala/menuSala.jsp\">Volver</a>");

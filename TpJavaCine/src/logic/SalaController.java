@@ -36,7 +36,7 @@ public void PonerSalaDisp(Sala sal) {
 ds.PonerSalaDisp(sal);
 }
 
-public Sala setSala (int nroSala) {
+public void setSala (int nroSala) {
 	
 	DataSala dsala = new DataSala();
 	Sala sala = new Sala();
@@ -49,13 +49,13 @@ public Sala setSala (int nroSala) {
 	
 	DataButaca dbutaca = new DataButaca();
 	int i;
-	for (i=0;i==10; i++) {
+	for (i=0;i<=10; i++) {
 		dbutaca.AltaButacas(i, sala.getNroSala());
 	}
 	
-	
-	return sala;
 }
+
+
 
 public void Delete(Sala per) {
 DataSala dsala = new DataSala();
