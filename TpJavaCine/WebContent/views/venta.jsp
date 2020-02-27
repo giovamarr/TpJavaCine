@@ -16,6 +16,6 @@
     <input type="text" name="pelicula"required/><br><br>
         <input type="submit" value="Aceptar" />     
     </form>
-
+<br><br><a href="menu.jsp">Volver</a>
 </body>
 </html>

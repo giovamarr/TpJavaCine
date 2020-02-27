@@ -74,7 +74,9 @@ public class ButacaServlet extends HttpServlet {
 		int nrosala = Integer.parseInt(request.getParameter("nrosala"));
 		int nrobutaca = Integer.parseInt(request.getParameter("nroButaca"));
 		int estado = Integer.parseInt(request.getParameter("estado"));
+	
 		ButacaController bc = new ButacaController(); 
+		try {
 switch(opcion) {
 case("guardar"):
 	if(bc.GetOne(nrobutaca, nrosala)==null) {
@@ -100,7 +102,8 @@ case("modificar"):
 case("borrar"):
 	
 	break;
-	}
+}}catch(Exception e ){ response(response,"Error del Servidor","<a href=\"views/menu.jsp\">Volver</a>");}
+	
 
 }
 	

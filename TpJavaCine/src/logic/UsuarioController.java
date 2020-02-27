@@ -23,7 +23,7 @@ public class UsuarioController {
 
 	}
 	
-	public Usuario setUsuario(String email, String pass, String apellido, String nombre) {
+	public void setUsuario(String email, String pass, String apellido, String nombre) {
 		
 		DataUsuario dusu = new DataUsuario();
 		Usuario usu = new Usuario();
@@ -36,7 +36,7 @@ public class UsuarioController {
 	
 		dusu.IngresarUsuario(usu);
 		
-		return usu;
+		
 	}
 	
 	

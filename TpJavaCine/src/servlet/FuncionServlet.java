@@ -70,7 +70,7 @@ public class FuncionServlet extends HttpServlet {
 						
 		        Sala sala = ConSala.GetOne(Integer.parseInt(request.getParameter("nrosala")));		
 						
-		        if((peli!=null) && (sala!=null) && (sCon.GetOne(nrofuncion)== null))
+		        if(/*(peli!=null) && (sala!=null) && */(sCon.GetOne(nrofuncion)== null))
 		        {		
 		        func.setDiaFuncion(request.getParameter("diafuncion"));
 	 		    func.setHoraFuncion(Integer.parseInt(request.getParameter("horafuncion")));	 			
@@ -80,7 +80,7 @@ public class FuncionServlet extends HttpServlet {
 	 			sCon.Insert(func);
 	 			response(response,"Funcion Creada","<a href=\"views/funcion/menufuncion.jsp\">Volver</a>");
 		        }else {
-		        	response(response,"Funcion ya Existe","<a href=\"views/funcion/crearfuncion.jsp\">Volver</a>");
+		        	response(response,"Funcion ya Existe","<a href=\"views/funcion/crearFuncion.jsp\">Volver</a>");
 		        }			
 			
 		 	

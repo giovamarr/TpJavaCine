@@ -12,11 +12,11 @@
   <input type="hidden" name="opcion" value="modificar">
      <h1>Datos:</h1>
       <label>Codigo</label>
-       <input type="number" name="codPelicula"><br><br>
+       <input type="number" name="codPelicula"required/><br><br>
        <label>Nombre</label>
-    <input type="text" name="nombrePelicula"/><br><br>
+    <input type="text" name="nombrePelicula"required/><br><br>
     <label>Descripcion</label>
-    <input type="text" name="descripcionPelicula"/><br><br>
+    <input type="text" name="descripcionPelicula"required/><br><br>
     <input type="submit" name="button" value="Aceptar">
        
         <br><br><br>

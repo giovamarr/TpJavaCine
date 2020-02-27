@@ -66,10 +66,11 @@ public class InicioSesion extends HttpServlet {
         
         UsuarioController usuCon = new UsuarioController();
        
-        Usuario usu = usuCon.loginUsuario(email, pass);
-  
- try {
-    	if(usu.getEmail()!=null) 
+       // Usuario usu = usuCon.loginUsuario(email, pass);
+      
+ try {  Usuario usu =usuCon.getByEmail(email);
+ 		
+    	if(usu.getEmail()!=null && pass.equals(usu.getPass())) 
     	{
       
     	sesion.setAttribute("usuarioActual", usu);

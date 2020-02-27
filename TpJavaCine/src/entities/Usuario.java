@@ -5,9 +5,9 @@ public class Usuario {
 		private String apellido;
 		private String email;
 		private String pass;
-		private String rol;
-		private String estado;
-		private int id;
+		//private String rol;
+		//private String estado;
+		//private int id;
 
 		private int id_cliente;
 			
@@ -34,24 +34,6 @@ public class Usuario {
 		}
 		public void setPass(String pass) {
 			this.pass = pass;
-		}
-		public String getRol() {
-			return rol;
-		}
-		public void setRol(String rol) {
-			this.rol = rol;
-		}
-		public String getEstado() {
-			return estado;
-		}
-		public void setEstado(String estado) {
-			this.estado = estado;
-		}
-		public int getId() {
-			return id;
-		}
-		public void setId(int id) {
-			this.id= id;
 		}
 		public int getId_cliente() {
 			return id_cliente;

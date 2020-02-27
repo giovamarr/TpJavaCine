@@ -126,7 +126,7 @@ public ArrayList<Funcion> GetFuncionesxPeli(int idpeli){
 	ArrayList<Funcion> funciones=new ArrayList<Funcion>();
 	PreparedStatement stmt=null;
 	ResultSet rs=null;
-	String consulta = "select * from funcion where id_codPelicula = ? and diaFuncion >= current_date()";
+	String consulta = "select * from funcion where id_codPelicula = ? ";
 
 	try {
 		stmt = Conexion.getInstancia().getConn().prepareStatement(consulta);
@@ -220,7 +220,7 @@ public void Insert(Funcion func) {
 	ResultSet keyResultSet=null;
 	try {
 		stmt=Conexion.getInstancia().getConn().
-				prepareStatement("insert into persona(diaFuncion, horaFuncion,id_nrosala,id_codPelicula,idFuncion) values(?,?,?,?,?)");
+				prepareStatement("insert into funcion(diaFuncion, horaFuncion,id_nrosala,id_codPelicula,idFuncion) values(?,?,?,?,?)");
 		//stmt.setDate(1, func.getDiaFuncion());
 		stmt.setString(1, func.getDiaFuncion());
 		stmt.setInt(2,func.getHoraFuncion());			

@@ -39,7 +39,7 @@ while(rs.next()){
 <td><%=rs.getInt("count(r.idReserva)")%></td>	
 </tr>
 <% } %>
-</table><br><br><a href="menu.jsp">Volver</a>
+</table><br><br><a href="../menu.jsp">Volver</a>
 
 
 </div>

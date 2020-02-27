@@ -11,7 +11,7 @@
 <form action="../../FuncionServlet" method ="post">
   <input type="hidden" name="opcion" value="borrar">
      <h1>Ingrese el numero de la funcion que desea borrar:</h1>
-       <input type="number" name="nrofuncion">
+       <input type="number" name="nrofuncion"required/>
        <input type="submit" value="Buscar">
          <br><br><br>
 <a href="../funcion/menufuncion.jsp">Volver</a>

@@ -13,7 +13,7 @@
      <h1>Nueva Sala</h1>
      
       <label>Ingrese el numero de la Sala a crear:</label>
-       <input type="number" name="nroSala" ><br><br>
+       <input type="number" name="nroSala"required/ ><br><br>
        <input type="submit" value="Aceotar">
         <br><br><br>
         

@@ -12,9 +12,9 @@
   <input type="hidden" name="opcion" value="modificar">
      <h1>Datos:</h1>
      Numero de Sala<br><br>
-       <input type="number" name="nroSala"><br><br>
+       <input type="number" name="nroSala"required/><br><br>
        Estado<br><br>
-       <input type="number" name="estado">(0-En Mantenimiento  1-Disponible)
+       <input type="number" name="estado"required/>(0-En Mantenimiento  1-Disponible)
        <br><br>
        <input type="submit" value="Aceptar">
 </form>

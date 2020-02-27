@@ -11,19 +11,19 @@ import entities.Usuario;
 public class DataUsuario {
 	private static String driver="com.mysql.jdbc.Driver";
 
-	public boolean registrarUsuario(String email, String apellido, String nombre, String pass,int id,int estado,int rol) {
+	public boolean registrarUsuario(String email, String apellido, String nombre, String pass) {
 	
 		PreparedStatement pst = null;
 		try {
-			String consulta = "insert into usuarios (email, apellido, nombre, pass,id,estado,rol)values (?,?,?,?,?,?,?)";
+			String consulta = "insert into usuarios (email, apellido, nombre, pass)values (?,?,?,?)";
 			pst =Conexion.getInstancia().getConn().prepareStatement(consulta);
 			pst.setString(1, email);
 			pst.setString(2, apellido);
 			pst.setString(3, nombre);
 			pst.setString(4, pass);
-			pst.setInt(5, id);
-			pst.setInt(6, estado);
-			pst.setInt(7, rol);
+			//pst.setInt(5, id);
+			//pst.setInt(6, estado);
+			//pst.setInt(7, rol);
 			
 			
 			if(pst.executeUpdate() ==1) {
@@ -46,19 +46,22 @@ public class DataUsuario {
 	}
 	
 	public boolean validarUsuario(String email, String pass) {
-		//PreparedStatement pst=null;
+		PreparedStatement stmt=null;
 		ResultSet rs=null;
 		boolean a=false;
 		try {Class.forName(driver);
-			String consulta="select * from usuarios where email=" + "\"" + email + "\" and pass=" + "\"" + pass + "\";";
+			String consulta="select * from usuarios where email=? and pass=?";
 		
-			Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/cine", "root", "lalo123");
-		
-			Statement stmt = conn.createStatement();
-			//pst = Conexion.getInstancia().getConn().prepareStatement(consulta);
-			/*pst.setString(1, email);
-			pst.setString(2, pass);*/
-			//rs=pst.executeQuery();
+			//Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/cine", "root", "lalo123");
+			
+			stmt=Conexion.getInstancia().getConn().prepareStatement(
+					"select * from usuarios where email=? and pass=?");
+					
+			//Statement stmt = conn.createStatement();
+			//stmt = Conexion.getInstancia().getConn().prepareStatement(consulta);
+			stmt.setString(1, email);
+			stmt.setString(2, pass);
+			rs=stmt.executeQuery();
 			rs= stmt.executeQuery(consulta);
 
 			
@@ -95,14 +98,14 @@ public class DataUsuario {
 			if(rs!=null && rs.next()) 
 		{
 				usuario = new Usuario();	
-				usuario.setId(rs.getInt("id"));
+			//	usuario.setId(rs.getInt("id"));
 				usuario.setEmail(rs.getString("email"));
 				usuario.setNombre(rs.getString("nombre"));
 				usuario.setApellido(rs.getString("apellido"));
 				usuario.setPass(rs.getString("pass"));
 				usuario.setId_cliente(rs.getInt("id"));
-				usuario.setEstado(rs.getString("estado"));
-				usuario.setRol(rs.getString("rol"));
+				//usuario.setEstado(rs.getString("estado"));
+			//	usuario.setRol(rs.getString("rol"));
 				
 				
 		}else {	System.out.println("no existe usuario");	}

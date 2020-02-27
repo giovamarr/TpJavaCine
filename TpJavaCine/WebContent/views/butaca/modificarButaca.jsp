@@ -12,11 +12,11 @@
   <input type="hidden" name="opcion" value="modificar">
      <h3>Datos:</h3>
      Numero Sala<br><br>
-   <input type="number" name= "nrosala"><br>
+   <input type="number" name= "nrosala"required/><br>
      Numero de la butaca <br><br>
-       <input type="number" name="nroButaca"><br><br>
+       <input type="number" name="nroButaca"required/><br><br>
  Estado <br><br>
-       <input type="number" name="estado">
+       <input type="number" name="estado"required/>
        0-Vacia  1-Ocupada<br><br>
        <input type="submit" value="Buscar">
        

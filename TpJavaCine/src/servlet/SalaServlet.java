@@ -75,6 +75,7 @@ public class SalaServlet extends HttpServlet {
 		//PrintWriter out =response.getWriter();
 		SalaController sCon = new SalaController();			
 		int nroSala = Integer.parseInt(request.getParameter("nroSala"));
+		
 		switch(opcion) {
 		
 		case("guardar"):	

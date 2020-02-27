@@ -33,6 +33,6 @@
 					<% } %>    
  		</table>
     
-    
+    <br><br><a href="menu.jsp">Volver</a>
 </body>
 </html>
