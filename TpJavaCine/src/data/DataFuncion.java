@@ -46,6 +46,44 @@ public ArrayList<Funcion> GetAll(){
 		return funciones;
 	}	
 	
+
+public ArrayList<Funcion> GetAllforPeli(int a){ 
+		
+		ArrayList<Funcion> funciones=new ArrayList<Funcion>();
+		String consulta = "select * from funcion where id_codPelicula=?";		
+		PreparedStatement pst=null;
+		ResultSet rs=null;
+		try {
+			pst = getConn().prepareStatement("select * from funcion where id_codPelicula=?");
+			pst.setInt(1, a);	
+			rs=pst.executeQuery();	
+			
+			while(rs.next()) 
+		{			
+				Funcion funcion = new Funcion();
+				funcion.setIdFuncion(rs.getInt("idFuncion"));
+				funcion.setId_nrosala(rs.getInt("id_nrosala"));
+				funcion.setId_codPelicula(rs.getInt("id_codPelicula"));
+				funcion.setDiaFuncion(rs.getString("diaFuncion"));
+				funcion.setHoraFuncion(rs.getInt("horaFuncion"));
+				funciones.add(funcion);
+										
+				}								
+				
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(getConn()!= null) getConn().close();
+				if(pst!=null)pst.close();
+				if(rs!=null)rs.close();
+				}
+				catch(Exception e) {
+					System.err.println("Error "+e);
+				}
+		}
+		return funciones;
+	}	
 	
 
 public Funcion GetOne(int id) {
