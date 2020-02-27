@@ -119,6 +119,47 @@ public Funcion GetOne(int id) {
 	
 	return sal;
 }
+
+
+
+public ArrayList<Funcion> GetFuncionesxPeli(int idpeli){ 
+	
+	ArrayList<Funcion> funciones=new ArrayList<Funcion>();
+	PreparedStatement stmt=null;
+	ResultSet rs=null;
+	String consulta = "select * from funcion where id_codPelicula = ? and diaFuncion >= current_date()";
+
+	try {
+		stmt = Conexion.getInstancia().getConn().prepareStatement(consulta);
+		stmt.setInt(1, idpeli);
+		rs=stmt.executeQuery();	
+		
+		while(rs.next()) 
+	{			
+			Funcion funcion = new Funcion();
+			funcion.setIdFuncion(rs.getInt("idFuncion"));
+			funcion.setId_nrosala(rs.getInt("id_nrosala"));
+			funcion.setId_codPelicula(rs.getInt("id_codPelicula"));
+			funcion.setDiaFuncion(rs.getString("diaFuncion"));
+			funcion.setHoraFuncion(rs.getInt("horaFuncion"));
+			funciones.add(funcion);
+									
+			}								
+			
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}finally {
+		try {
+			if(getConn()!= null) getConn().close();
+			if(stmt!=null)stmt.close();
+			if(rs!=null)rs.close();
+			}
+			catch(Exception e) {
+				System.err.println("Error "+e);
+			}
+	}
+	return funciones;
+}
 	
 
 	public void Delete(Funcion per) {
@@ -201,7 +242,10 @@ public void Insert(Funcion func) {
 	}
 }
         
-	}
+	
+
+	
+
 
 
 /*
@@ -233,5 +277,7 @@ public void Insert(Funcion func) {
 	
 }*/
 
-	
+
+
+}
 

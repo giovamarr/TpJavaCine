@@ -42,7 +42,10 @@ public void Insert(Funcion func) {
 	DF.Insert(func);
 }
 
-
+public ArrayList<Funcion> BuscaFunciones(int idpeli){
+	DataFuncion DF=new DataFuncion();
+	return DF.GetFuncionesxPeli(idpeli);
+}
 
 
 }
