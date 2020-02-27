@@ -48,11 +48,4 @@ public void Update(Pelicula peli) {
 	dp.Update(peli);
 }
 
-public ArrayList<Pelicula> BuscaFunciones(int idpeli){
-	DataPelicula dp = new DataPelicula();
-return dp.BuscaFunciones(idpeli);
-	
-}
-
-
 }
