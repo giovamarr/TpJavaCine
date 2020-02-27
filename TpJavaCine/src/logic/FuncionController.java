@@ -17,7 +17,11 @@ public Funcion GetOne(int id) {
 	DataFuncion DF=new DataFuncion();
 	return DF.GetOne(id);
 }
+public ArrayList<Funcion> GetAllforPeli(int a){ 
+	DataFuncion DF=new DataFuncion();
+	return DF.GetAllforPeli(a);
 
+}
 
 
 

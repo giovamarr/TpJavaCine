@@ -19,7 +19,7 @@
 		<hr>
 	</div>
 	
-<a href="listaventasporpeli.jsp">Listado de Ventas por Pelicula</a><div>
+<a href="Listas/VentaspPeli.jsp">Listado de Ventas por Pelicula</a><div>
 		<hr>
 	</div>
 	
