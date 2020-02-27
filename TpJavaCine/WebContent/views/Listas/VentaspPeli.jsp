@@ -35,9 +35,8 @@ rs=ps.executeQuery();
 while(rs.next()){
 %>
 <tr>
- <td>
- <%=rs.getInt("p.codPelicula")%></td>
-<td><%=rs.getInt("p.nombrePelicula")%></td>		        
+<td><%=rs.getInt("p.codPelicula")%></td>
+<td><%=rs.getString("p.nombrePelicula")%></td>		        
 <td><%=rs.getInt("count(r.idReserva)")%></td>
 </tr>
 <% } %>
