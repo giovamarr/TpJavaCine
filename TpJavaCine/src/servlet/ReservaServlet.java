@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 //import java.text.SimpleDateFormat;
 //import java.util.Date;
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import data.DataFuncion;
 import logic.FuncionController;
 import logic.PeliculaController;
 import entities.Funcion;
@@ -76,9 +78,9 @@ public class ReservaServlet extends HttpServlet {
         Pelicula pel = pCon.GetOne(pelicula);
         
 		if (pel.getNombrePelicula() !=null) {
-			//ArrayList<Funcion> func = new ArrayList<>();
-			//FuncionController fCon = new FuncionController();
-			//func = fCon.BuscaFunciones(pel.getCodPelicula());
+			request.setAttribute("funcionesparapeli", new DataFuncion().GetFuncionesxPeli(pel.getCodPelicula()) );
+			RequestDispatcher rd = request.getRequestDispatcher("/venta.jsp");
+			rd.forward(request, response);
 			
 			
 			//MOSTRAR LAS FUNCIONES CON EL METODO GETALL EN FUNCIONCONTROLLER EN muestraPeliculas.jsp

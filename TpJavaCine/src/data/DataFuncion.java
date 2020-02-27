@@ -7,7 +7,6 @@ import java.util.ArrayList;
 //import  java.sql.Date;
 
 import entities.Funcion;
-import entities.Pelicula;
 public class DataFuncion extends Conexion{
 
 public ArrayList<Funcion> GetAll(){ 
