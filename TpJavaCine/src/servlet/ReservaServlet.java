@@ -79,7 +79,7 @@ public class ReservaServlet extends HttpServlet {
         
 		if (pel.getNombrePelicula() !=null) {
 			request.setAttribute("funcionesparapeli", new DataFuncion().GetFuncionesxPeli(pel.getCodPelicula()) );
-			RequestDispatcher rd = request.getRequestDispatcher("/venta.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/views/muestraPeliculas.jsp");
 			rd.forward(request, response);
 			
 			
