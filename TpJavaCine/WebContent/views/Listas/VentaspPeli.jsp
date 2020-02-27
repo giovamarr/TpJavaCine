@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Ventas por Peli</title>
 </head>
 <body>
 <%
@@ -25,7 +25,7 @@ rs=ps.executeQuery();
 %>
 <div>
 <h2>Listado de ventas por película</h2>
-<table>
+<table style='border-right-style: solid; border-bottom-color: #000000; letter-spacing: normal; vertical-align: super; border-left-color: #000000; font-size: 12px; line-height: normal; border-right-color: #000000; font-style: normal; border-top-style: solid; word-spacing: normal; border-left-style: solid; border-top-color: #000000; font-family: "Times New Roman", Serif; border-bottom-style: solid; border-top-width: thin; border-right-width: thin; border-left-width: thin; border-bottom-width: thin; text-align: left'>
 <tr>
 <th>Cod. Película</th>
 <th>Nombre</th>
@@ -41,7 +41,7 @@ while(rs.next()){
 <td><%=rs.getInt("count(r.idReserva)")%></td>
 </tr>
 <% } %>
-</table>
+</table><br><br><a href="menu.jsp">Volver</a>
 
 
 </div>

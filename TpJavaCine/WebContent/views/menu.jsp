@@ -23,7 +23,7 @@
 		<hr>
 	</div>
 	
-<a href="listaporfuncion.jsp">Listado de cantidad de entradas por función</a><div>
+<a href="Listas/Entradas.jsp">Listado de cantidad de entradas por función</a><div>
 		<hr>
 			</div>
 	
