@@ -24,10 +24,10 @@
 					<tr>
 						<% Funcion func = (Funcion)funciones.get(i); %>
 						<td>
-							<%func.getDiaFuncion(); %>
+							<%=func.getDiaFuncion() %>
 						</td>
 						<td>
-							<%func.getHoraFuncion(); %>
+							<%=func.getHoraFuncion() %>
 						</td>	
 					</tr>
 					<% } %>    
