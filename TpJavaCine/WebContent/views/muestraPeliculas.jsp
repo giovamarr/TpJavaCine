@@ -14,6 +14,7 @@
      <table>
      		<thead>
      				<tr>
+     					<th>Id Funcion</th>
      					<th>Date</th>
      					<th>Time</th>
      				</tr>
@@ -28,7 +29,7 @@
 					</tr>
 					<% } %>    
  		</table>
- 		<form action="../CrearReservaServlet" method="post">
+ 		<form action="../../CrearReservaServlet" method="post">
  		<label>Ingrese id de funcion </label><br>
  		<input type ="number" name = "idfunc" /><br>
  		<input type ="submit" value ="Aceptar"/>
