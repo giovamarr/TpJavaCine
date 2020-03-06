@@ -84,7 +84,7 @@ public class CrearReservaServlet extends HttpServlet {
 			if(butacas.size() > 0) {
 				try {
 					Butaca b = butacas.get(0);
-					b.setEstadoButaca(1);
+					bCon.RegistraOcupado(b.getNroButaca(), func.getId_nrosala());
 					Reserva reserva = new Reserva();
 					reserva.setIdbutaca(b.getNroButaca());
 					reserva.setIdFuncion(func.getIdFuncion());
