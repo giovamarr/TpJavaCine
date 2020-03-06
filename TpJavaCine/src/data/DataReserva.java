@@ -153,9 +153,9 @@ public void Insert(Reserva res) {
 	try {
 	//	String consulta = "insert into reserva (fechaCompra,idbutaca,idFuncion)values (?,?,?)";
 		pst = Conexion.getInstancia().getConn().prepareStatement( "insert into reserva (fechaCompra,idbutaca,idFuncion)values (?,?,?)");	
-		pst.setString(1, "12");
+		pst.setString(1,res.getFechaHoraCompra());		
 		//pst.setInt(3,res.getIdUsuario());		
-		pst.setInt(3,res.getIdbutaca());	
+		pst.setInt(2,res.getIdbutaca());	
 		
 		pst.setInt(3,res.getIdFuncion());
 		pst.executeUpdate();

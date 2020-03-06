@@ -79,17 +79,15 @@ public class CrearReservaServlet extends HttpServlet {
 		Funcion func = fCon.GetOne(idfunc);
 		if(func != null ) {
 		ButacaController bCon = new ButacaController();
-			ArrayList<Butaca> butacas = bCon.ButacasVacias();
-			
+			ArrayList<Butaca> butacas = bCon.ButacasVacias(func.getId_nrosala());			
 			if(butacas.size() > 0) {
 				try {
-				Butaca b = butacas.get(0);
+					Butaca b = butacas.get(1);
 					bCon.RegistraOcupado(b.getNroButaca(), func.getId_nrosala());
 					Reserva reserva = new Reserva();
 					reserva.setIdbutaca(b.getNroButaca());
 					reserva.setIdFuncion(func.getIdFuncion());
-					//reserva.setFechaHoraCompra();
-					//reserva.setId_cliente();
+					reserva.setFechaHoraCompra(func.getDiaFuncion());
 					ReservaController rCon = new ReservaController();
 					rCon.Insert(reserva);
 					response(response,"Reserva generada correctamente","<a href=\"views/venta.jsp\">Volver</a>");

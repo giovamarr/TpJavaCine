@@ -16,10 +16,10 @@ public class ButacaController {
 		DButaca.RegistraOcupado(nrobut,sala);
 	}
 	
-	public ArrayList<Butaca> ButacasVacias(){
+	public ArrayList<Butaca> ButacasVacias(int a){
 		DataButaca DButaca=new DataButaca();
 		ArrayList<Butaca> b=new ArrayList<Butaca>();
-		return b=DButaca.ButacasVacias();	
+		return b=DButaca.ButacasVacias(a);	
 		
 	}
 	public void upd(Butaca sal) {
