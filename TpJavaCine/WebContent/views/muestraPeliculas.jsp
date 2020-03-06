@@ -31,7 +31,7 @@
  		</table>
  		<form action="CrearReservaServlet" method="post" ><br>
  		<label>Ingrese id de funcion </label><br>
- 		<input type ="number" name = "idfunc" /><br>
+ 		<input type ="number" name = "idfunc"required/ /><br>
  		<input type ="submit" value ="Aceptar"/>
  		</form>
  		
