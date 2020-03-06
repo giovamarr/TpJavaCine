@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import entities.Funcion;
 import entities.Reserva;
+import entities.Sala;
 public class DataReserva extends Conexion{
 
 public ArrayList<Reserva> GetAll(){ 
@@ -44,69 +45,56 @@ public ArrayList<Reserva> GetAll(){
 		return reservas;
 	}	
 	
-	
-	public Reserva GetOne(int id) {
-		Reserva reserva = new Reserva();
-		String consulta = "select * from reserva where idReserva=?";		
-		PreparedStatement pst=null;
-		ResultSet rs=null;
-		try {
-			pst = getConn().prepareStatement(consulta);
-			pst.setInt(1, id);
-			rs=pst.executeQuery();	
-			if(rs.next()) 
-		{
-				reserva.setId_cliente(rs.getInt("id_cliente"));
-				reserva.setFechaHoraCompra(rs.getString("fechaCompra"));
-		//		reserva.setIdReserva(rs.getInt("idReserva"));
+public Reserva GetOne(int id) {
+	Reserva reserva=null;
+	PreparedStatement stmt=null;
+	ResultSet rs=null;
+	try {
+		stmt=Conexion.getInstancia().getConn().prepareStatement(
+				"select * from reserva where idReserva=?"
+				);
+		stmt.setInt(1, id);		
+		rs=stmt.executeQuery();
+		if(rs!=null && rs.next()) {
+			reserva=new Reserva();
+			reserva.setFechaHoraCompra(rs.getString("fechaCompra"));
+			reserva.setIdReserva(rs.getInt("idReserva"));
 				reserva.setIdbutaca(rs.getInt("idbutaca"));
 				reserva.setIdFuncion(rs.getInt("idFuncion"));
 		}
-			
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}finally {
+		try {
+			if(rs!=null) {rs.close();}
+			if(stmt!=null) {stmt.close();}
+			Conexion.getInstancia().releaseConn();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
-			try {
-				if(getConn()!= null) getConn().close();
-				if(pst!=null)pst.close();
-				if(rs!=null)rs.close();
-				}
-				catch(Exception e) {
-					System.err.println("Error "+e);
-				}
 		}
-		
-		return reserva;
-		
 	}
+	
+	return reserva;
+}
+public void Delete(Reserva res) {
+	PreparedStatement stmt=null;
+	try {
+		stmt=Conexion.getInstancia().getConn().prepareStatement("DELETE FROM reserva where idReserva=?");
+		stmt.setInt(1, res.getIdReserva());
+		stmt.executeUpdate();
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}finally {
+		try {
+			if(stmt!=null) {stmt.close();}
+			Conexion.getInstancia().releaseConn();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+}
 	
 
-	public void Delete(Reserva res) {
-		
-		
-		PreparedStatement pst=null;
-		ResultSet rs=null;
-		try {
-			String consulta = "DELETE FROM reserva where idReserva==?";
-			pst =Conexion.getInstancia().getConn().prepareStatement(consulta);	
-			pst.setInt(1, res.getIdReserva());
-			pst.executeUpdate();
-		
-			
-		}catch(Exception e) {
-			System.err.println("Error "+e);
-		}finally {
-			try {
-				if(getConn()!= null) getConn().close();
-				if(pst!=null)pst.close();
-				if(rs!=null)rs.close();
-				}
-				catch(Exception e) {
-					System.err.println("Error "+e);
-				}
-		}
-	}
-	
 	
 
 public void Update(Reserva res) {

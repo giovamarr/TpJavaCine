@@ -15,7 +15,7 @@
 		<hr>
 	</div>
 	
-<a href="devolucion.jsp">Devolucion de Entradas</a><div>
+<a href="devolucion.jsp">Cancelar Reserva</a><div>
 		<hr>
 	</div>
 	
