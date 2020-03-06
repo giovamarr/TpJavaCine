@@ -12,7 +12,7 @@
    <input type="hidden" name="opcion" value="guardar">
      <h1>Nueva Funcion</h1>
    <label>Nro de Funcion</label>
-       <input type="number" name="nrofuncion"required/ ><br><br>
+       <input type="number" name="nrofuncion"required/> <br><br>
         <label>Nro de Sala</label>
     <input type="number" name="nrosala"required/><br><br>
     <label>Codigo de Pelicula</label>
@@ -25,6 +25,5 @@
         <br><br><br>
 <a href="../funcion/menufuncion.jsp">Volver</a>
 </form>
-
 </body>
 </html>

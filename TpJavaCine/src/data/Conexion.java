@@ -25,8 +25,8 @@ public class Conexion {
 	private String host="127.0.0.1";
 	private String port="3306";
 	private String user="root";
-	private String db="cine";
-	private String password="root";*/
+	private String password="root";
+	private String db="cine";*/
 
 	
 	

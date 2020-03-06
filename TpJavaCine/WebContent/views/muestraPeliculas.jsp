@@ -3,7 +3,7 @@
      <%@page import="java.util.ArrayList" %>
     <%@page import="entities.Funcion" %>
     
-    <% ArrayList funciones = (ArrayList)request.getAttribute("funcionesparapeli"); %>
+    <% ArrayList<Funcion> funciones = (ArrayList<Funcion>)request.getAttribute("funcionesparapeli"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +11,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-   
      <table>
      		<thead>
      				<tr>
@@ -20,19 +19,24 @@
      				</tr>
      		</thead>
     
-					<% for (int i=0; i<funciones.size(); i++) { %>
+					<% for (int i=0; i<funciones.size(); i++) { %> 
 					<tr>
 						<% Funcion func = (Funcion)funciones.get(i); %>
-						<td>
-							<%=func.getDiaFuncion() %>
-						</td>
-						<td>
-							<%=func.getHoraFuncion() %>
-						</td>	
+						<td> <%=func.getIdFuncion() %></td>
+						<td> <%=func.getDiaFuncion() %> </td>
+						<td> <%=func.getHoraFuncion() %> </td>	
 					</tr>
 					<% } %>    
  		</table>
-    
+ 		<form action="../CrearReservaServlet" method="post">
+ 		<label>Ingrese id de funcion </label><br>
+ 		<input type ="number" name = "idfunc" /><br>
+ 		<input type ="submit" value ="Aceptar"/>
+ 		</form>
+ 		
+ 		
+ 		
+ 		
     <br><br><a href="menu.jsp">Volver</a>
 </body>
 </html>

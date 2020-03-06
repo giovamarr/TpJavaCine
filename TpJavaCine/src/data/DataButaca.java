@@ -160,7 +160,7 @@ public void upd(Butaca sal) {
 		PreparedStatement stmt=null;
 		ResultSet rs=null;
 		try {
-			stmt=Conexion.getInstancia().getConn().prepareStatement("SELECT * FROM butacas where nrobutaca==?  and id_sala=?");
+			stmt=Conexion.getInstancia().getConn().prepareStatement("SELECT * FROM butacas where nrobutaca=?  and id_sala=?");
 			stmt.setInt(1, nrobut);
 			stmt.setInt(2,sala);	
 			rs = stmt.executeQuery();
@@ -186,6 +186,7 @@ public void upd(Butaca sal) {
 		return but;
 	}
 	//Alta (de a una) de las butacas de una sala nueva (depsues lo manejamos con un for)
+	
 	public void AltaButacas(int id, int idsala) {
 		PreparedStatement pst = null;
 			
@@ -212,7 +213,44 @@ public void upd(Butaca sal) {
 		}	
 	}	
 
-
+	
+public ArrayList<Butaca> ButacasVacias(int idsala){
+		
+		ArrayList<Butaca> butacas=new ArrayList<Butaca>();
+		String consulta = "select * from butacas where estadobutaca=0 and id_sala = ?";		
+		PreparedStatement pst=null;
+		ResultSet rs=null;
+		try {
+			pst = Conexion.getInstancia().getConn().prepareStatement(consulta);
+			pst.setInt(1, idsala);
+			rs=pst.executeQuery();	
+			
+			while(rs.next()) 
+		{			
+					Butaca a = new Butaca();
+					a.setEstadoButaca(rs.getInt("estadobutaca"));
+					a.setNroButaca(rs.getInt("nrobutaca"));
+					a.setId_sala(rs.getInt("id_sala"));
+					butacas.add(a);
+										
+				}								
+				
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(getConn()!= null) getConn().close();
+				if(pst!=null)pst.close();
+				if(rs!=null)rs.close();
+				}
+				catch(Exception e) {
+					System.err.println("Error "+e);
+				}
+		}
+		
+		return butacas;
+	}
+	
 	
 	
 	

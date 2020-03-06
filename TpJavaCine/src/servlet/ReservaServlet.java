@@ -2,7 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 //import java.text.SimpleDateFormat;
@@ -14,9 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import data.DataFuncion;
-import logic.FuncionController;
+//import logic.FuncionController;
 import logic.PeliculaController;
-import entities.Funcion;
+//import entities.Funcion;
 //import entities.Usuario;
 import entities.Pelicula;
 //import logic.UsuarioController;
@@ -81,24 +81,16 @@ public class ReservaServlet extends HttpServlet {
 			request.setAttribute("funcionesparapeli", new DataFuncion().GetFuncionesxPeli(pel.getCodPelicula()) );
 			RequestDispatcher rd = request.getRequestDispatcher("/views/muestraPeliculas.jsp");
 			rd.forward(request, response);
-			
-			
 			//MOSTRAR LAS FUNCIONES CON EL METODO GETALL EN FUNCIONCONTROLLER EN muestraPeliculas.jsp
 			
-		} else 
-   	 { 
-	
-			response(response,"No existe pelicula o no hay funciones hoy","<a href=\"views/venta.jsp\">Volver</a>");
- 	}
-   	 }	
-		
-		// SimpleDateFormat fo = new SimpleDateFormat("yyyy/MM/dd");
-		// Date fecha = fo.parse(request.getParameter("fecha"));  
-		//    Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);  
-		
-		
-		
-		
-	}
+		} 
+		else { 
+		response(response,"No existe pelicula o no hay funciones hoy","<a href=\"views/venta.jsp\">Volver</a>");
+   	 		}
+   }	
+}
 
+// SimpleDateFormat fo = new SimpleDateFormat("yyyy/MM/dd");
+// Date fecha = fo.parse(request.getParameter("fecha"));  
+//    Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);  
 
