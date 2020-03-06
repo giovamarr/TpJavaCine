@@ -4,7 +4,7 @@ package entities;
 public class Reserva {
 	
 	private int idReserva;
-private java.sql.Date fechaHoraCompra;  //hay que ver el tipo time que no se la liberia
+private String fechaHoraCompra;  //hay que ver el tipo time que no se la liberia
 private int idUsuario;
 private int idbutaca;
 private int idFuncion;
@@ -37,7 +37,7 @@ public int getIdFuncion() {
 public void setIdFuncion(int idFuncion) {
 	this.idFuncion = idFuncion;
 }
-
+/*
 
 public java.sql.Date getFechaHoraCompra() {
 	return fechaHoraCompra;
@@ -46,5 +46,14 @@ public java.sql.Date getFechaHoraCompra() {
 
 public void setFechaHoraCompra(java.sql.Date fechaCompra) {
 	this.fechaHoraCompra = fechaCompra;
+}*/
+
+public String getFechaHoraCompra() {
+	return fechaHoraCompra;
 }
+
+public void setFechaHoraCompra(String fechaHoraCompra) {
+	this.fechaHoraCompra = fechaHoraCompra;
+}
+
 }

@@ -78,12 +78,12 @@ public class CrearReservaServlet extends HttpServlet {
 		FuncionController fCon = new FuncionController();
 		Funcion func = fCon.GetOne(idfunc);
 		if(func != null ) {
-			ButacaController bCon = new ButacaController();
+		ButacaController bCon = new ButacaController();
 			ArrayList<Butaca> butacas = bCon.ButacasVacias();
 			
 			if(butacas.size() > 0) {
 				try {
-					Butaca b = butacas.get(0);
+				Butaca b = butacas.get(0);
 					bCon.RegistraOcupado(b.getNroButaca(), func.getId_nrosala());
 					Reserva reserva = new Reserva();
 					reserva.setIdbutaca(b.getNroButaca());

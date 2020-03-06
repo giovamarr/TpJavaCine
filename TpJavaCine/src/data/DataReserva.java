@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import entities.Funcion;
 import entities.Reserva;
 public class DataReserva extends Conexion{
 
@@ -20,8 +21,8 @@ public ArrayList<Reserva> GetAll(){
 			while(rs.next()) 
 		{			
 				Reserva reserva = new Reserva();
-				reserva.setId_cliente(rs.getInt("id_cliente"));
-				reserva.setFechaHoraCompra(rs.getDate("fechaCompra"));
+				//reserva.setId_cliente(rs.getInt("id_cliente"));
+				reserva.setFechaHoraCompra(rs.getString("fechaCompra"));
 				reserva.setIdReserva(rs.getInt("idReserva"));
 				reserva.setIdbutaca(rs.getInt("idbutaca"));
 				reserva.setIdFuncion(rs.getInt("idFuncion"));
@@ -56,8 +57,8 @@ public ArrayList<Reserva> GetAll(){
 			if(rs.next()) 
 		{
 				reserva.setId_cliente(rs.getInt("id_cliente"));
-				reserva.setFechaHoraCompra(rs.getDate("fechaCompra"));
-				reserva.setIdReserva(rs.getInt("idReserva"));
+				reserva.setFechaHoraCompra(rs.getString("fechaCompra"));
+		//		reserva.setIdReserva(rs.getInt("idReserva"));
 				reserva.setIdbutaca(rs.getInt("idbutaca"));
 				reserva.setIdFuncion(rs.getInt("idFuncion"));
 		}
@@ -120,8 +121,8 @@ public void Update(Reserva res) {
 			String consulta = "Update funcion set fechaHoraCompra=?,,idUsuario=?,idButaca=?,idFuncion=? where idReserva==?";
 
 			pst =Conexion.getInstancia().getConn().prepareStatement(consulta);	
-			pst.setDate(1, res.getFechaHoraCompra());
-			pst.setInt(3,res.getIdUsuario());
+			pst.setString(1, res.getFechaHoraCompra());
+			//pst.setInt(3,res.getIdUsuario());
 			pst.setInt(4,res.getIdbutaca());
 			pst.setInt(5,res.getIdFuncion());
 			
@@ -150,12 +151,13 @@ public void Insert(Reserva res) {
 
 	PreparedStatement pst = null;
 	try {
-		String consulta = "insert into funcion (fechaCompra, horaCommpra,id_cliente,idbutaca,idFuncion)values (?,?,?,?,?)";
-		pst = getConn().prepareStatement(consulta);	
-		pst.setDate(1, res.getFechaHoraCompra());
-		pst.setInt(3,res.getIdUsuario());
-		pst.setInt(4,res.getIdbutaca());
-		pst.setInt(5,res.getIdFuncion());
+	//	String consulta = "insert into reserva (fechaCompra,idbutaca,idFuncion)values (?,?,?)";
+		pst = Conexion.getInstancia().getConn().prepareStatement( "insert into reserva (fechaCompra,idbutaca,idFuncion)values (?,?,?)");	
+		pst.setString(1, "12");
+		//pst.setInt(3,res.getIdUsuario());		
+		pst.setInt(3,res.getIdbutaca());	
+		
+		pst.setInt(3,res.getIdFuncion());
 		pst.executeUpdate();
 		
 	}
